@@ -570,52 +570,46 @@ def admin_edit_user(request, authorization, admin_id):
 @login_required(login_url='/admin_login/')
 def admin_edit_user_post(request, authorization, admin_id):
 
+    email_exists = False
+
     if request.method == 'POST':
         user_name = request.POST['user_name']
-        current_user_name = request.POST['current_user_name']
         fullname = request.POST['fullname']
         email = request.POST['email']
         contact = request.POST['contact']
         permission = request.POST['permission']
 
-        username_check = User.objects.filter(username=user_name)
 
-        if user_name != current_user_name:
-            if username_check:
+        admin_all = User.objects.all().exclude(id=admin_id)
 
-                messages.warning(request, 'username is already taken!')
-                url = '/admin_edit_user/' + authorization + '/' + str(admin_id)
-                return redirect(url)
+        for items in admin_all:
+
+            if items.email == email:
+                email_exists = True
+                break
             else:
-                user_query = User.objects.get(id=admin_id)
+                email_exists = False
 
-                if user_query:
-                    if user_query.profile.authorization == authorization:
-                        user_query.user_name = user_name
-                        user_query.fullname = fullname
-                        user_query.email = email
-                        user_query.contact = contact
-                        user_query.permission = permission
-                        user_query.save()
-                        messages.success(request, 'User Updated!')
-                        return redirect('/admin_setting/')
-                else:
-                    messages.error(request, 'no such record found')
-                    return redirect('/admin_setting/')
+        if email_exists:
+            messages.warning(request, 'Email already exists!')
+            url = '/admin_edit_user/' + authorization + '/' + str(admin_id)
+            return redirect(url)
         else:
             user_query = User.objects.get(id=admin_id)
+
             if user_query:
-                user_query.user_name = user_name
-                user_query.fullname = fullname
-                user_query.email = email
-                user_query.contact = contact
-                user_query.permission = permission
-                user_query.save()
-                messages.success(request, 'User Updated!')
-                return redirect('/admin_setting/')
+                if user_query.profile.authorization == authorization:
+                    user_query.username = user_name
+                    user_query.profile.fullname = fullname
+                    user_query.email = email
+                    user_query.profile.contact = contact
+                    user_query.profile.authorization = permission
+                    user_query.save()
+                    messages.success(request, 'User Updated!')
+                    return redirect('/admin_setting/')
             else:
                 messages.error(request, 'no such record found')
-                return redirect('/admin_setting/')
+                return redirect('/admin_edit_user' + '/' + authorization + '/' + admin_id)
 
 
 @login_required(login_url='/admin_login/')
