@@ -14,6 +14,9 @@ class Profile(models.Model):
     photo_img = models.ImageField(blank=True, null=True, upload_to='photos/admin_user', default=0)
     fullname = models.CharField(max_length=20, default='user')
 
+    def __str__(self):
+        return self.user.username
+
 
 class grihaprista(models.Model):
     class Meta:
@@ -31,6 +34,9 @@ class grihaprista(models.Model):
     news_id = models.BigIntegerField(default=0)
     news_type = models.CharField(max_length=20, default='grihaprista')
 
+    def __str__(self):
+        return self.title
+
 
 class Breaking_news(models.Model):
     class Meta:
@@ -39,6 +45,9 @@ class Breaking_news(models.Model):
     title = models.CharField(max_length=200)
     date_uploaded = models.DateField(default=datetime.now)
     time_uploaded = models.TimeField(default=datetime.now)
+
+    def __str__(self):
+        return self.title
 
 
 class Latest_news(models.Model):
@@ -58,6 +67,9 @@ class Latest_news(models.Model):
     news_id = models.BigIntegerField(default=0)
     news_type = models.CharField(max_length=20, default='latest')
 
+    def __str__(self):
+        return self.title
+
 
 class sandhiya(models.Model):
     class Meta:
@@ -74,6 +86,9 @@ class sandhiya(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='sandhiya')
     number_of_views = models.BigIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
 
 
 class pradesh(models.Model):
@@ -92,6 +107,9 @@ class pradesh(models.Model):
     news_type = models.CharField(max_length=20, default='pradesh')
     number_of_views = models.BigIntegerField(default=0)
 
+    def __str__(self):
+        return self.title
+
 
 class esthaniya(models.Model):
     class Meta:
@@ -108,6 +126,9 @@ class esthaniya(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='esthaniya')
     number_of_views = models.BigIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
 
 
 class manoranjan(models.Model):
@@ -126,6 +147,9 @@ class manoranjan(models.Model):
     news_type = models.CharField(max_length=20, default='manoranjan')
     number_of_views = models.BigIntegerField(default=0)
 
+    def __str__(self):
+        return self.title
+
 
 class khelud(models.Model):
     class Meta:
@@ -142,6 +166,9 @@ class khelud(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='khelud')
     number_of_views = models.BigIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
 
 
 class antarbarta(models.Model):
@@ -160,6 +187,9 @@ class antarbarta(models.Model):
     news_type = models.CharField(max_length=20, default='antarbarta')
     number_of_views = models.BigIntegerField(default=0)
 
+    def __str__(self):
+        return self.title
+
 
 class bichar_lekh(models.Model):
     class Meta:
@@ -176,6 +206,9 @@ class bichar_lekh(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='bichar_lekh')
     number_of_views = models.BigIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
 
 
 class suchanapraviti(models.Model):
@@ -194,6 +227,9 @@ class suchanapraviti(models.Model):
     news_type = models.CharField(max_length=20, default='suchanapraviti')
     number_of_views = models.BigIntegerField(default=0)
 
+    def __str__(self):
+        return self.title
+
 
 class antarastriya(models.Model):
     class Meta:
@@ -210,6 +246,9 @@ class antarastriya(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='antarastriya')
     number_of_views = models.BigIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
 
 
 class sampadakiya(models.Model):
@@ -228,6 +267,9 @@ class sampadakiya(models.Model):
     news_type = models.CharField(max_length=20, default='sampadakiya')
     number_of_views = models.BigIntegerField(default=0)
 
+    def __str__(self):
+        return self.title
+
 
 class youtubelink(models.Model):
     class Meta:
@@ -237,6 +279,9 @@ class youtubelink(models.Model):
     link = models.CharField(max_length=200)
     date_uploaded = models.DateField(default=datetime.now)
     time_uploaded = models.TimeField(default=datetime.now)
+
+    def __str__(self):
+        return self.title
 
 
 class news_comment(models.Model):
@@ -248,18 +293,8 @@ class news_comment(models.Model):
     url = models.CharField(max_length=200, default=None)
     time_uploaded = models.DateField(default=datetime.now)
 
-
-class admin_user(models.Model):
-    class Meta:
-        db_table = 'admin_user'
-
-    email = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
-    contact = models.CharField(max_length=20, default='***')
-    authorization = models.CharField(max_length=10, default='All')
-    user_name = models.CharField(max_length=20, unique=True)
-    photo_img = models.ImageField(blank=True, null=True, upload_to='photos/admin_user', default=0)
-    fullname = models.CharField(max_length=20, default='user')
+    def __str__(self):
+        return self.full_name
 
 
 class about_us(models.Model):
@@ -282,5 +317,8 @@ class ads_table(models.Model):
     date_uploaded = models.DateField(default=datetime.now)
     time_uploaded = models.TimeField(default=datetime.now)
     photo_img = models.ImageField(blank=True, null=True, upload_to='photos/ads_table', default=0)
+
+    def __str__(self):
+        return self.ads_num
 
 

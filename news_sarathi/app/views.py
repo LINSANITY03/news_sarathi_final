@@ -10,7 +10,6 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 
 from .forms import about_us_post, National_form, National_edit_form, add_news, add_news_edit, login_form
-from .models import admin_user
 from .models import sandhiya, pradesh, esthaniya, manoranjan, khelud, antarbarta, bichar_lekh, suchanapraviti, \
     antarastriya, sampadakiya, Breaking_news, youtubelink, grihaprista, Latest_news, about_us, ads_table, Profile
 
@@ -579,7 +578,7 @@ def admin_edit_user_post(request, authorization, admin_id):
         contact = request.POST['contact']
         permission = request.POST['permission']
 
-        username_check = admin_user.objects.filter(user_name=user_name)
+        username_check = User.objects.filter(username=user_name)
 
         if user_name != current_user_name:
             if username_check:
@@ -588,21 +587,23 @@ def admin_edit_user_post(request, authorization, admin_id):
                 url = '/admin_edit_user/' + authorization + '/' + str(admin_id)
                 return redirect(url)
             else:
-                user_query = admin_user.objects.get(id=admin_id, authorization=authorization)
+                user_query = User.objects.get(id=admin_id)
+
                 if user_query:
-                    user_query.user_name = user_name
-                    user_query.fullname = fullname
-                    user_query.email = email
-                    user_query.contact = contact
-                    user_query.permission = permission
-                    user_query.save()
-                    messages.success(request, 'User Updated!')
-                    return redirect('/admin_setting/')
+                    if user_query.profile.authorization == authorization:
+                        user_query.user_name = user_name
+                        user_query.fullname = fullname
+                        user_query.email = email
+                        user_query.contact = contact
+                        user_query.permission = permission
+                        user_query.save()
+                        messages.success(request, 'User Updated!')
+                        return redirect('/admin_setting/')
                 else:
                     messages.error(request, 'no such record found')
                     return redirect('/admin_setting/')
         else:
-            user_query = admin_user.objects.get(id=admin_id, authorization=authorization)
+            user_query = User.objects.get(id=admin_id)
             if user_query:
                 user_query.user_name = user_name
                 user_query.fullname = fullname
