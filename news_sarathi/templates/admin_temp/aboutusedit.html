@@ -1,0 +1,34 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+{% load widget_tweaks %}
+
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+<script src="{% static 'javascript/script.js' %}"></script>
+<script src="{% static 'javascript/ckeditor.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+
+<div class="text">Edit हाम्राे बारेमा</div>
+    <div class="ns_container">
+    <div class="ns_aboutus_container">
+        <div class="ns_about_text">
+            <form action="{% url 'admin_AboutUs_post' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="title">TITLE</label>
+                {% render_field form.title type="text" id="title" placeholder="Your Title..." %}
+                <br>
+                <br>
+                <label for="textarea">Content</label>
+                <br>
+                {{form.content}}
+                {{form.media}}
+
+                <div class="pstbt">
+                     <input class="ns_post" id="ns_post" type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'admin/bottom.html' %}

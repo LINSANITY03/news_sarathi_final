@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/authorize.css' %}">
+
+<div class="ns_authorize_description">
+    <table id="ns_authorize_list">
+        <tr>
+            <th>SN.</th>
+            <th>User Name</th>
+            <th>Name</th>
+            <th>Permission</th>
+            <th>Status</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>www.youtube.com</td>
+            <td>Xyz</td>
+            <td>News</td>
+
+            <td> <button>Edit</button> <button>Delete</button></td>
+        </tr>
+    </table>
+    <form action="edituser.html">
+        <input type="submit" value="Add User">
+    </form>
+</div>

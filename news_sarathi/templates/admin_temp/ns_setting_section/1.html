@@ -1,0 +1,59 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+
+<div class="ns_profile_container">
+    <!-- <div class="ns_profile_heading">Profile</div> -->
+    <div class="ns_profile_row">
+        <div class="ns_profile_column1">
+            <div class="ns_profile_img_size">
+                <img src="{{ admin_all.profile.photo_img.url }}" alt="" class="ns_profile_img">
+            </div>
+        </div>
+        <div class="ns_profile_column2">
+            <div class="ns_profile_text">
+                <t1>{{admin_all.email}}</t1>
+                <br>
+                {% if admin_all.profile.authorization == 'All' %}
+                <t2>Admin</t2>
+                {% elif admin_all.profile.authorization == 'News' %}
+                <t2>News Editor</t2>
+                {% elif admin_all.profile.authorization == 'Ads' %}
+                <t2>Ads Manager</t2>
+                {% else %}
+                {% endif %}
+                <br>
+                <br>
+
+                <div class="ns_profile_row">
+                    <div class="ns_profile_column3">
+
+                        <ul>
+                            <li>Username</li>
+                            <li>Email</li>
+                            <li>Contact</li>
+                            <li>Authorization</li>
+                        </ul>
+                    </div>
+
+                    <div class="ns_profile_column4">
+
+                        <ul>
+                            <li>: {{admin_all.username}}</li>
+                            <li>: {{admin_all.email}}</li>
+                            <li>: {{admin_all.profile.contact}}</li>
+                            <li>: {{admin_all.profile.authorization}}</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <a href="{% url 'admin_profile'%}">
+                    <button class="ns_button">Edit</button>
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+</div>

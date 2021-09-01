@@ -1,0 +1,28 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+{% load widget_tweaks %}
+
+<link rel="stylesheet" href="{% static 'css/ads_panel.css' %}">
+
+<div class="text">Add Ads : Ads Panel</div>
+
+<div class="ns_container">
+    <div class="addnews">
+        <div class="written">
+            <form action="/add_ads_page_post/{{ads_id}}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="ad_title">Ad Title</label>
+                <input type="text" id="ad_title" name="ad_title" value="" placeholder="Ad Title..." required><br><br><br>
+
+                <label for="img">SELECT AD IMAGE:</label>
+                <input type="file" id="img" name="img" accept="image/*" class="img_upload" required><br><br><br>
+
+                <button type="submit" class="ns_post">POST</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% include 'admin/bottom.html' %}

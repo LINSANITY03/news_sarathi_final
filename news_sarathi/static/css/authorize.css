@@ -1,0 +1,66 @@
+.ns_authorize_description{
+    padding: 50px;
+}
+#ns_authorize_list {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #ns_authorize_list td, #ns_authorize_list th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  #ns_authorize_list th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1467b4;
+    color: white;
+  }
+.ns_button {
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    background-color: #1467b4;
+    color: white;
+    padding: 14px 20px;
+   margin-top: 5%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .edit{
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color:  #04AA6D;
+	font-size: 15px;
+	cursor: pointer;
+	color: white;
+    text-decoration: none;
+    border: 2px solid #04AA6D;
+    padding: 5px 15px 5px 15px;
+}
+
+.remove{
+    border-radius: 25px;
+    background-color:  #fd0606;
+	font-size: 15px;
+	cursor: pointer;
+	color: white;
+  border: 2px solid #fd0606;
+    text-decoration: none;
+    padding: 5px 15px 5px 15px;
+}
+
+
+.edit:hover{
+    color: #04AA6D;
+    background-color: #ffffff;
+    border: 2px solid #04AA6D;
+}
+.remove:hover{
+    color: #fd0606;
+    background-color: #ffffff;
+    border: 2px solid #fd0606;
+}

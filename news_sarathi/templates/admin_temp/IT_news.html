@@ -1,0 +1,86 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+
+<script src="{% static 'javascript/script.js'%}"></script>
+
+<link rel="stylesheet" href="{% static 'css/all_news.css' %}">
+
+
+<link href="{% static 'css/toastr.min.css' %}" rel="stylesheet"/>
+<script src="{% static 'javascript/jquery-1.9.1.min.js' %}"></script>
+<script src="{% static 'javascript/toastr.min.js' %}"></script>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+            {% if message.tags == 'success'%}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'info' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'warning' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'error' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="text">सूचना प्रविधि News</div>
+<div class="ns_container">
+    <div class="all">
+        <div class="ns_adbnews">
+            <a href="/admin_add/suchanapraviti" class="ns_add_news_btn">ADD सूचना प्रविधि News</a><br><br>
+        </div>
+        <div class="table">
+            <table id="customers">
+                <tr>
+                    <th>SN</th>
+                    <th>News</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Author</th>
+                    <th>Action</th>
+                </tr>
+                {% for items in suchanapraviti_news %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td class="ns_table_title">{{items.title}}</td>
+                    <td>{{items.time_uploaded}}</td>
+                    <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                    <td>{{items.editor_name}}</td>
+                    <td>
+                        <a href="/admin_view/suchanapraviti/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" class="btn edit">Edit</a>
+                        <a href="/admin_delete_news/suchanapraviti/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" class="btn remove">Remove</a>
+                        <a class="btn main" href="/admin_add_grihaprista/suchanapraviti/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" >main</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if suchanapraviti_news.has_previous %}
+                  <a href="?page=1">&laquo; first</a>
+                  <a href="?page={{ suchanapraviti_news.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current" >
+                    Page {{ suchanapraviti_news.number }} of {{ suchanapraviti_news.paginator.num_pages }}
+                </span>
+
+              {% if suchanapraviti_news.has_next %}
+                  <a href="?page={{ suchanapraviti_news.next_page_number }}">next</a>
+                  <a href="?page={{ suchanapraviti_news.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+      <!--end of Pagination-->
+
+    </div>
+</div>
+
+{% include 'admin/bottom.html' %}

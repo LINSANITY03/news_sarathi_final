@@ -1,0 +1,47 @@
+{% include 'english/dashboard/top.html'%}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/setting.css' %}">
+<script src="{% static 'javascript/setting.js' %}"></script>
+
+<div class="text">Setting</div>
+<div class="ns_container">
+    <!-- <button>Edit Profile</button>
+    <br><br>
+    <button>Edit Authorized Personal</button> -->
+
+    <!-- <div class="ns_setting_row">
+        <div class="ns_setting_column1">
+            <ul class="ns_setting_ul">
+                <li><i class='bx bx-user'></i>Profile Details</li>
+                <li><i class='bx bx-run'></i>Admin Control</li>
+                <li><i class='bx bx-lock'></i>Change Password</li>
+                <li><i class='bx bx-help-circle' ></i>Help</li>
+            </ul>
+
+
+        </div>
+        <div class="ns_setting_column2">
+            <span class="ns_column1_heading">Admin Access Control</span>
+            <hr>
+        </div>
+
+    </div> -->
+
+    <div class="ns_setting_sidebar">
+        <ul class="ns_setting_ul" data-tag="channelList">
+            <li onclick="switchChannel(this); callMe('UL_1');" class="selected"><i class='bx bx-user'></i>Profile
+                Details</li>
+            <li onclick="switchChannel(this); callMe('UL_2');"><i class='bx bx-run'></i>Admin Control</li>
+            <li onclick="switchChannel(this); callMe('UL_3');"><i class='bx bx-lock'></i>Change Password</li>
+            <li onclick="switchChannel(this); callMe('UL_4');"><i class='bx bx-help-circle'></i>Help</li>
+        </ul>
+    </div>
+
+    <section class="ns_setting_section" id="ns_setting_section">
+        {% include 'admin_temp/ns_setting_section/1.html' %}
+    </section>
+
+</div>
+
+{% include 'english/dashboard/bottom.html' %}

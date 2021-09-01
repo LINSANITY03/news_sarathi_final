@@ -1,0 +1,151 @@
+.ns_container {    
+    margin: 50px;
+    padding: 0px;
+    text-align: center;
+}
+
+.addnews{
+    padding: 50px 50px 0px 50px;
+}
+
+.written{
+    width: 100%;    
+}
+
+.written label{
+    float: left;
+    margin-top: 10px;
+}
+
+input[type=text] {
+    width: 90%;
+    padding: 12px 20px;
+    float: right;    
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add_buttons{
+    margin-left: 30%;
+    padding-bottom: 30px;
+}
+
+.add_buttons ul{
+    list-style: none;
+    display: table-row;
+}
+
+.add_buttons li{
+    display: table-cell;
+}
+
+.add_buttons label{
+    padding: 15px;
+}
+
+.django-ckeditor-widget{
+width: 100%;
+}
+
+#cke_1_contents{
+height: 500px;
+}
+
+.ad_news{
+    text-align: center;
+}
+
+#photo_img-clear_id{
+    display:none;
+}
+
+label[for="photo_img-clear_id"]
+{
+    display:none;
+}
+
+#textarea{
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#textarea1{
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.pstbt{
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+
+.ns_post{
+    padding: 8px 50px;
+    background-color: #4EABFF;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    border: 2px;
+}
+
+.ns_post:hover{
+    background-color: white;
+    color: #4EABFF;
+    border: 2px solid #4EABFF;
+}
+
+.ns_post_edit{
+    padding: 8px 50px;
+    background-color: #04AA6D;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    border: 2px;
+}
+
+.ns_post_edit:hover{
+    background-color: white;
+    color: #04AA6D;
+    border: 2px solid #04AA6D;
+}
+
+.ns_post_delete{
+    padding: 8px 50px;
+    background-color: red;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.ns_post_delete:hover{
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+.img_upload{
+    margin-left: 12px;
+    margin-top: 10px;
+    
+}

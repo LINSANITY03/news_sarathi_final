@@ -1,0 +1,141 @@
+{% include 'english/dashboard/top.html' with current_user=current_user %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/smsPoll.css' %}">
+<link rel="stylesheet" href="{% static 'css/breaking_news.css' %}">
+
+<script src="{% static 'javascript/Chart.js' %}"></script>
+
+<div class="text">Hello {{current_user.username}}</div>
+<br>
+<a href="/admin_home/" class="ns_add_news_btn">Nepali Panel</a><br><br>
+
+<div class="ns_container">
+
+    <hr>
+    <!-- main news start -->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_collapsible">
+
+            <div class="ns_adbnews">
+                <div class="topic">Main News</div>
+                <br><br>
+            </div>
+        </div>
+        <div class="all">
+
+            <div class="table">
+                <table id="customers">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in main_news_all%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>
+                            <a href="#" class="btn remove">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <!--Pagination-->
+                <div class="container p-4">
+                    <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if main_news_all.has_previous %}
+                  <a href="?page1=1">&laquo; first</a>
+                  <a href="?page1={{ main_news_all.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current">
+                    Page {{ main_news_all.number }} of {{ main_news_all.paginator.num_pages }}
+                </span>
+
+              {% if interview_all.has_next %}
+                  <a href="?page1={{ main_news_all.next_page_number }}">next</a>
+                  <a href="?page1={{ main_news_all.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+                    </div>
+                </div>
+                <!--end of Pagination-->
+
+        </div>
+    </div>
+    <hr>
+    <!-- main news end -->
+
+    <!-- latest news start -->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_collapsible">
+
+            <div class="ns_adbnews">
+                <div class="topic">Latest News</div>
+                <br><br>
+            </div>
+        </div>
+        <div class="all">
+
+            <div class="table">
+                <table id="customers">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Maria Anders</td>
+                        <td>04:00</td>
+                        <td>12/01</td>
+                        
+                        <td>
+                     
+                            <a href="#" class="btn remove">Remove</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Maria Anders</td>
+                        <td>04:00</td>
+                        <td>12/01</td>
+                       
+                        <td>
+                           
+                            <a href="#" class="btn remove">Remove</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">&raquo;</a>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <!-- Latest news end -->
+
+</div>
+
+{% include 'english/dashboard/bottom.html' %}

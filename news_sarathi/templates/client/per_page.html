@@ -1,0 +1,170 @@
+{% include 'client/top.html' %}
+{% load static %}
+
+  <link rel="stylesheet" href="{% static 'css/font.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/allpage.css' %}">
+  <script src="{% static 'javascript/homepage.js' %}"></script>
+<!-- breaking news start -->
+
+    <div class="ticker">
+      <div class="title">
+        <h3>ब्रेकिङ न्युज</h3>
+      </div>
+
+      <div class="news">
+        <marquee>
+          <p>
+           {% for items in breaking_news_all %}
+              {{items.title}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {% endfor %}
+          </p>
+
+        </marquee>
+      </div>
+
+    </div>
+    <!-- breaking news end -->
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- heading ends -->
+
+    <!-- main news  latest news and editors choice container start -->
+    <!-- body part -->
+    <div class="ns_main_container">
+      <div class="ns_subcontianer">
+        <div class="ns_perpage_row">
+          <div class="ns_perpage_column1">
+            <p class="ns_p_heading">{{new_objects.title}}</p>
+            <hr>
+            <img class="ns_pp_main_image" src="{{new_objects.photo_img.url}}">
+       
+          <hr>
+          <p class="ns_p_subheading">{{new_objects.editor_name}}, {{new_objects.location}} </p>
+
+          <p class="ns_p_content">{{new_objects.description | safe}}
+          </p>
+
+        </div>
+
+        <div class="ns_perpage_column2">
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+          </div>
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+          </div>
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+          </div>
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="ns_subcontianer">
+      <div class="ns_perpage_row">
+        <div class="ns_perpage_column1">
+          <hr>
+          <div class="ns_top_banner">
+            <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_3">
+          </div>
+          <hr>
+          <div class="ns_comment_box">
+            <p class="titleName">Recent Comment</p>
+            <hr>
+            <div class="ns_comment_row">
+
+              <div class="ns_comment_column2">
+                <div class="ns_comment_box">
+                  <p class="Name">Name Here</p>
+                  <p class="Date">Date</p>
+                  <hr>
+                  <p class="Comment">Comments HEre</p>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="ns_comment_row">
+
+              <div class="ns_comment_column2">
+                <div class="ns_comment_box">
+                  <p class="Name">Name Here</p>
+                  <p class="Date">Date</p>
+                  <hr>
+                  <p class="Comment">Comments HEre</p>
+
+                </div>
+
+              </div>
+            </div>
+
+
+            <hr>
+            <p class="titleName">Comment Here</p>
+            <div>
+              <form>
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your Full name..">
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="lastname" placeholder="Enter your email id..">
+                <label for="comment">Comment</label><br>
+                <textarea id="comment" name="comment"  placeholder="Write Something..."></textarea>
+
+
+                <input type="submit" value="Submit">
+              </form>
+            </div>
+
+            <!-- yogi for you start from here  -->
+
+          </div>
+        </div>
+
+        <div class="ns_perpage_column2">
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+          </div>
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+          </div>
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+          </div>
+          <div class="ns_side_ad_container">
+            <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  {% include 'client/footer.html' %}
+
+  </div>
+  <!-- footer session end -->
+  <a href="#" class="to-top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+
+
+  <script src="{% static 'javascript/main.js' %}"></script>
+
+</body>
+
+</html>

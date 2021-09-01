@@ -1,0 +1,301 @@
+
+
+.ns_newslist_row, .ns_newslist_row_en {
+    width: 100%;
+    margin: 0% 0 0 0;
+    display: flex;
+  }
+  
+  .ns_newslist_column1, .ns_newslist_column1_en {
+    width: 40%;
+    float: left;
+    padding: 5px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_newslist_column2, .ns_newslist_column2_en {
+    width: 60%;
+    float: left;
+    padding: 10px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_newslist_column2 a, .ns_newslist_column2 a{
+    text-decoration: none;
+    color: black;
+    float: right;
+  }
+  
+  .ns_newslist_img, .ns_newslist_img_en{
+    width: 100%;
+  }
+  
+  .ns_newslist_text, .ns_newslist_text_en{
+    text-align: left;
+    text-decoration: none;
+    font-size: 20px;  
+    margin-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    
+  }
+
+  .ns_main_container, .ns_main_container_en {
+    width: 90%;
+    margin: 0 5% 3% 5%;
+  }
+  
+  .ns_top_ad_contianer, .ns_top_ad_contianer_en {
+    width: 100%;
+    display: flex;
+  }
+  
+  .ns_subcontianer, .ns_subcontianer_en {
+    width: 100%;
+    margin: 0% 0 0 0;
+    display: flex;
+  }
+  
+  .ns_top_ad_banner {
+    width: 90%;
+    margin: 0 5% 2% 5%;
+  }
+  
+  .ns_perpage_row,.ns_perpage_row_en {
+    width: 100%;
+    margin: 0% 0 0 0;
+    display: flex;
+  }
+  
+  .ns_perpage_column1, .ns_perpage_column1_en {
+    width: 70%;
+    float: left;
+    padding: 5px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  .ns_perpage_column1 img, .ns_perpage_column1_en img{
+
+    width: 100%;
+  height: auto;
+   object-fit: cover;
+  }
+  
+  .ns_perpage_column2, .ns_perpage_column2_en {
+    width: 30%;
+    float: left;
+    padding: 5px;
+    height: 100%;
+    margin: 0.4% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_p_heading, .ns_p_heading_en {
+    text-align: left;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .ns_p_subtopic, .ns_p_subtopic_en{
+    text-align: left;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+  }
+  
+  
+  .ns_p_subheading, .ns_p_subheading_en {
+    text-align: left;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-family: 'Mukta', sans-serif;
+  }
+  
+  .ns_p_content, .ns_p_content_en{
+    text-align: justify;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+    line-height: 28px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .ns_side_ad_container, .ns_side_ad_containe_en{
+    width: 99.5%;
+    margin: 5% 0.5% 5% 0%;  
+  }
+  
+  .ns_side_ad, .ns_side_ad_en{
+    width: 100%;
+  }
+  
+  .ns_mid_ad_container, .ns_mid_ad_container_en{
+    width: 94%;
+    margin: 2% 3% 2% 3%;
+  }
+  
+  .ns_mid_ad, .ns_mid_ad_en{
+    width: 100%;
+  }
+  
+  .ns_comment_box{ 
+    height: auto; 
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+  }
+  
+  .ns_comment_box .titleName{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    
+  }
+  
+  .ns_comment_row {
+    width: 100%;
+    margin: 0% 0 0 0;
+    display: flex;
+  }
+  
+  .ns_comment_column1 {
+    width: 5%;
+    float: left;
+    padding: 10px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_comment_column2 {
+    width: 95%;
+    float: left;
+    padding: 10px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_comment_box .Name{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0px 0px 0px;
+    /* margin-bottom: 10px; */
+  }
+  
+  .ns_comment_box .Date{
+    font-size: 15px;
+    font-style: italic;
+    margin: 0px;
+    /* margin-top: 0px; */
+  }
+  
+  .ns_comment_box .Comment{
+    font-size: 15px;
+    font-style: normal;
+    margin: 0px;
+    /* margin-top: 10px; */
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  #textarea1{
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* For REsponsive   */
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  .ns_subcontianer, .ns_subcontianer_en{
+    width: 100%;
+  }
+
+  .ns_perpage_row, .ns_perpage_row_en{
+    flex-direction: column;
+  }
+
+  .ns_perpage_column1, .ns_perpage_column2, .ns_pp_main_image, .ns_p_heading
+  .ns_perpage_column1_en, .ns_perpage_column2_en, .ns_pp_main_image_en, .ns_p_heading_en{
+    width: 100%;
+  }
+
+  .ns_newslist_row, .ns_newslist_row_en{
+    flex-direction: column;
+  }
+
+  .ns_newslist_column1, .ns_newslist_column2
+  .ns_newslist_column1_en, .ns_newslist_column2_en{
+    width: 100%;
+  }
+
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+  .ns_subcontianer, .ns_subcontianer_en{
+    width: 100%;
+  }
+
+  .ns_perpage_row, .ns_perpage_row_en{
+    flex-direction: column;
+  }
+
+  .ns_perpage_column1, .ns_perpage_column2, .ns_pp_main_image, .ns_p_heading
+  .ns_perpage_column1_en, .ns_perpage_column2_en, .ns_pp_main_image_en, .ns_p_heading_en{
+    width: 100%;
+  }
+
+  .ns_newslist_row, .ns_newslist_row_en{
+    flex-direction: column;
+  }
+
+  .ns_newslist_column1, .ns_newslist_column2
+  .ns_newslist_column1_en, .ns_newslist_column2_en{
+    width: 100%;
+  }
+
+}
+
+
+  

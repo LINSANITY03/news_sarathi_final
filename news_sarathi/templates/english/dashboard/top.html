@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>News Sarathi</title>
+    <link rel="stylesheet" href="{% static 'css/en_css/style.css' %}">
+    
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon" />
+    
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <img src="{% static 'images/icon.png' %}" alt="" class="ns_favicon">
+            <div class="logo_name">
+                <img src="{% static 'images/logo12.png' %}" class="ns_name">
+            </div>
+
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="{% url 'en_admin_home' %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="{% url 'en_national_news' %}">
+                    <i class='bx bx-news'></i>
+                    <span class="links_name">News</span>
+                </a>
+                <span class="tooltip">News</span>
+            </li>
+            <li>
+                <a href="{% url 'en_interview_news' %}">
+                    <i class='bx bx-microphone'></i>
+                    <span class="links_name">Interview</span>
+                </a>
+                <span class="tooltip">Interview</span>
+            </li>
+           
+            <li>
+                <a href="{% url 'en_article_news' %}">
+                    <i class='bx bx-microchip'></i>
+                    <span class="links_name">Article</span>
+                </a>
+                <span class="tooltip">Article</span>
+            </li>
+           
+            <li>
+                <a href="{% url 'en_editorial_news' %}">
+                    <i class='bx bxs-message-edit'></i>
+                    <span class="links_name">Editorial</span>
+                </a>
+                <span class="tooltip">Editorial</span>
+            </li>
+
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="{{current_user.profile.photo_img.url}}" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name">{{current_user.username}}</div>
+                        {% if current_user.profile.authorization == 'All' %}
+                            <div class="job">Admin</div>
+                        {% elif current_user.profile.authorization == 'News'%}
+                            <div class="job">News Editor</div>
+                        {% else %}
+                            <div class="job">Ads Manager</div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="div_log_out">
+                <a href="{% url 'logged_out' %}" class="log_out">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+</div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section"> 

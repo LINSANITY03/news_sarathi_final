@@ -1,0 +1,38 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/smsPoll1.css' %}">
+<script src="{% static 'javascript/Chart.js'%}"></script>
+
+<div class="text">Hello Yogendra</div>
+
+<div class="ns_container">
+<div class="ns_poll_container">
+            <div class="ns_poll_heading">
+                <h1>Add SMS Poll</h1>
+            </div>
+            <div class="ns_poll_details">
+                <form action="smspoll.php">
+    
+                   
+                        <h3>Question</h3>
+                        <textarea>Some text...</textarea>
+                    <h3>Answers</h3>
+                    <label for="name">Option1</label>
+                    <input type="text" id="option" name="option1" value="" placeholder="Enter Your option1.."><br>
+                    <label for="name">Option2</label>
+                    <input type="text" id="option" name="option2" value="" placeholder="Enter Your option2.."><br>
+                    <label for="name">Option3</label>
+                    <input type="text" id="option" name="option3" value="" placeholder="Enter Your option3.."><br>
+                    <label for="name">Option4</label>
+                    <input type="text" id="option" name="option4" value="" placeholder="Enter Your option4.."><br><br>
+    
+                    <input type="submit" value="Post">
+                </form>
+            </div>
+        </div>
+</div>
+
+<script src="{% static 'javascript/pieChart_data.js' %}"></script>
+<script src="{% static 'javascript/get_poll.js' %}"></script>
+
+{% include 'admin/bottom.html' %}

@@ -1,0 +1,149 @@
+{% include 'english/dashboard/top.html'%}
+{% load static %}
+{% load widget_tweaks %}
+<link rel="stylesheet" href="{% static  'css/national.css' %}">
+
+<div class="text">News</div>
+<a href="{% url 'en_add_news' %}" class="ns_add_news_btn">Add News</a>
+<!-- <a href="add_news.php"><button class="an adnews">ADD NEWS</button></a> -->
+<div class="ns_container">
+
+    <!--add news-->
+
+    <div class="ns_n_news">
+        <!--first-->
+        <button type="button" class="collapsible">News</button>
+        <div class="content">
+            <div class="tapg">
+                <table id="customers">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_author_column">Author</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in national_news%}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="ns_news_column">{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>{{items.editor_name}}</td>
+                        <td>
+                            <a class="btn edit" href="/en/en_national_news_view/News/{{items.date_uploaded| date:"Y-m-d"}}/{{items.id }}" >View</a>
+                            <a href="" class="btn remove">Remove</a>
+                            <a class="btn main" href="/en/en_main_news_add/News/{{items.date_uploaded| date:"Y-m-d"}}/{{items.id }}">main</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                <!--Pagination-->
+                <div class="container p-4">
+                    <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if national_news.has_previous %}
+                  <a href="?page1=1">&laquo; first</a>
+                  <a href="?page1={{ national_news.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current">
+                    Page {{ national_news.number }} of {{ national_news.paginator.num_pages }}
+                </span>
+
+              {% if national_news.has_next %}
+                  <a href="?page1={{ national_news.next_page_number }}">next</a>
+                  <a href="?page1={{ national_news.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+                    </div>
+                </div>
+                <!--end of Pagination-->
+
+            </div>
+        </div>
+
+        <!--second-->
+
+        <button type="button" class="collapsible">Sports</button>
+        <div class="content">
+            <div class="tapg">
+                <table id="customers1">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_author_column">Author</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in national_sports%}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="ns_news_column">{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>{{items.editor_name}}</td>
+                        <td>
+                            <a class="btn edit" href="/en/en_national_news_view/Sports/{{items.date_uploaded| date:"Y-m-d"}}/{{items.id }}" >View</a>
+                            <a href="" class="btn remove">Remove</a>
+                            <a class="btn main" href="/en/en_main_news_add/Sports/{{items.date_uploaded| date:"Y-m-d"}}/{{items.id }}">main</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <!--Pagination-->
+                <div class="container p-4">
+                    <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if national_sports.has_previous %}
+                  <a href="?page2=1">&laquo; first</a>
+                  <a href="?page2={{ national_sports.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current">
+                    Page {{ national_sports.number }} of {{ national_sports.paginator.num_pages }}
+                </span>
+
+              {% if national_sports.has_next %}
+                  <a href="?page2={{ national_sports.next_page_number }}">next</a>
+                  <a href="?page2={{ national_sports.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+                    </div>
+                </div>
+                <!--end of Pagination-->
+
+            </div>
+        </div>
+
+        <!--third-->
+
+    </div>
+
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+
+</script>
+
+{% include 'english/dashboard/bottom.html' %}

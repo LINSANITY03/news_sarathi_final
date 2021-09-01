@@ -1,0 +1,684 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+{% load widget_tweaks %}
+
+    <link rel="stylesheet" href="{% static 'css/ads_panel.css' %}">
+    <link href="{% static 'css/toastr.min.css' %}" rel="stylesheet"/>
+    <script src="{% static 'javascript/jquery-1.9.1.min.js' %}"></script>
+    <script src="{% static 'javascript/toastr.min.js' %}"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+            {% if message.tags == 'success'%}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'info' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'warning' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'error' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="text">Ads Panel</div>
+
+<div class="ns_container">
+
+    <div class="ns_ads_main_container">
+        <div class="text">Main Page Ads</div>
+        <hr>
+        <div class="ns_ads_main_row">
+            <div class="ns_ads_main_column1">
+                <div class="ns_ads_wireframe">
+
+                    <div class="ci_ourpm">
+                        <div class="ci_scrollable">
+                            <a href="//www.google.com">
+                                <img src="{% static 'images/New Wireframe 2.png' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ns_ads_main_column2">
+                <div class="ns_ads_table">
+                    <table id="ns_main_action">
+                        <tr>
+                            <th class="ns_th_ad1">Ad Number</th>
+                            <th class="ns_th_ad2">Ad</th>
+                            <th class="ns_th_ad3">Action</th>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>
+                                {% if ad_query_001.title %}
+                                    {{ad_query_001.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_001.title %}
+                                    <a href="/ads_page/edit_ads/001" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                    <a href="/del_ads/001" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/001" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>002</td>
+                            <td>
+                                {% if ad_query_002.title %}
+                                    {{ad_query_002.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                               {% if ad_query_002.title %}
+
+                                <a href="/ads_page/edit_ads/002" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/002" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/002" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>003</td>
+                            <td>
+                                {% if ad_query_003.title %}
+                                    {{ad_query_003.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_003.title %}
+
+                                <a href="/ads_page/edit_ads/003" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/003" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/003" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>004</td>
+                            <td>
+                                {% if ad_query_004.title %}
+                                    {{ad_query_004.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_004.title %}
+
+                                <a href="/ads_page/edit_ads/004" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/004" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/004" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>005</td>
+                            <td>
+                                {% if ad_query_005.title %}
+                                    {{ad_query_005.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_005.title %}
+
+                                <a href="/ads_page/edit_ads/005" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/005" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/005" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>006</td>
+                            <td>
+                                {% if ad_query_006.title %}
+                                    {{ad_query_006.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_006.title %}
+
+                                <a href="/ads_page/edit_ads/006" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/006" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/006" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>007</td>
+                            <td>
+                                {% if ad_query_007.title %}
+                                    {{ad_query_007.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_007.title %}
+
+                                <a href="/ads_page/edit_ads/007" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/007" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/007" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>008</td>
+                            <td>
+                               {% if ad_query_008.title %}
+                                    {{ad_query_008.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_008.title %}
+
+                                <a href="/ads_page/edit_ads/008" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/008" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/008" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>009</td>
+                            <td>
+                                {% if ad_query_009.title %}
+                                    {{ad_query_009.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_009.title %}
+
+                                <a href="/ads_page/edit_ads/009" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/009" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/009" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>010</td>
+                            <td>
+                                {% if ad_query_010.title %}
+                                    {{ad_query_010.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_010.title %}
+
+                                <a href="/ads_page/edit_ads/010" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/010" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/010" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>011</td>
+                            <td>
+                                {% if ad_query_011.title %}
+                                    {{ad_query_011.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_011.title %}
+
+                                <a href="/ads_page/edit_ads/011" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/011" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/011" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>012</td>
+                            <td>
+                                {% if ad_query_012.title %}
+                                    {{ad_query_012.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_012.title %}
+
+                                <a href="/ads_page/edit_ads/012" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/012" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/012" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ns_ads_main_container">
+        <div class="text">List Page Ads</div>
+        <hr>
+        <div class="ns_ads_main_row">
+            <div class="ns_ads_main_column1">
+                <div class="ns_ads_wireframe">
+
+                    <div class="ci_ourpm">
+                        <div class="ci_scrollable">
+                            <a href="//www.google.com">
+                                <img src="{% static 'images/New Wireframe 3.png' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ns_ads_main_column2">
+                <div class="ns_ads_table">
+                    <table id="ns_main_action">
+                        <tr>
+                            <th class="ns_th_ad1">Ad Number</th>
+                            <th class="ns_th_ad2">Ad</th>
+                            <th class="ns_th_ad3">Action</th>
+                        </tr>
+                        <tr>
+                            <td>021</td>
+                            <td>
+                                {% if ad_query_021.title %}
+                                    {{ad_query_021.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_021.title %}
+
+                                <a href="/ads_page/edit_ads/021" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/021" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/021" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>022</td>
+                            <td>
+                                {% if ad_query_022.title %}
+                                    {{ad_query_022.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_022.title %}
+
+                                <a href="/ads_page/edit_ads/022" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/022" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/022" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>023</td>
+                            <td>
+                                {% if ad_query_023.title %}
+                                    {{ad_query_023.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_023.title %}
+
+                                <a href="/ads_page/edit_ads/023" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/023" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/023" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>024</td>
+                            <td>
+                                {% if ad_query_024.title %}
+                                    {{ad_query_024.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_024.title %}
+
+                                <a href="/ads_page/edit_ads/024" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/024" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/024" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>025</td>
+                            <td>
+                               {% if ad_query_025.title %}
+                                    {{ad_query_025.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_025.title %}
+
+                                <a href="/ads_page/edit_ads/025" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/025" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/025" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>026</td>
+                            <td>
+                                {% if ad_query_026.title %}
+                                    {{ad_query_026.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_026.title %}
+
+                                <a href="/ads_page/edit_ads/026" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/026" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/026" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>027</td>
+                            <td>
+                                {% if ad_query_027.title %}
+                                    {{ad_query_027.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                 {% if ad_query_027.title %}
+
+                                <a href="/ads_page/edit_ads/027" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/027" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/027" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>028</td>
+                            <td>
+                                {% if ad_query_028.title %}
+                                    {{ad_query_028.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_028.title %}
+
+                                <a href="/ads_page/edit_ads/028" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/028" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/028" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ns_ads_main_container">
+        <div class="text">Per Page Ads</div>
+        <hr>
+        <div class="ns_ads_main_row">
+            <div class="ns_ads_main_column1">
+                <div class="ns_ads_wireframe">
+
+                    <div class="ci_ourpm">
+                        <div class="ci_scrollable">
+                            <a href="//www.google.com">
+                                <img src="{% static 'images/New Wireframe 1.png' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ns_ads_main_column2">
+                <div class="ns_ads_table">
+                    <table id="ns_main_action">
+                        <tr>
+                            <th class="ns_th_ad1">Ad Number</th>
+                            <th class="ns_th_ad2">Ad</th>
+                            <th class="ns_th_ad3">Action</th>
+                        </tr>
+                        <tr>
+                            <td>013</td>
+                            <td>
+                                {% if ad_query_013.title %}
+                                    {{ad_query_013.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_013.title %}
+
+                                <a href="/ads_page/edit_ads/013" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/013" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/013" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>014</td>
+                            <td>
+                                {% if ad_query_014.title %}
+                                    {{ad_query_014.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_014.title %}
+
+                                <a href="/ads_page/edit_ads/014" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/014" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/014" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>015</td>
+                            <td>
+                                {% if ad_query_015.title %}
+                                    {{ad_query_015.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_015.title %}
+
+                                <a href="/ads_page/edit_ads/015" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/015" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/015" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>016</td>
+                            <td>
+                                {% if ad_query_016.title %}
+                                    {{ad_query_016.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_016.title %}
+
+                                <a href="/ads_page/edit_ads/016" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/016" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/016" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>017</td>
+                            <td>
+                                {% if ad_query_017.title %}
+                                    {{ad_query_017.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            </td>
+                            <td>
+                                {% if ad_query_017.title %}
+
+                                <a href="/ads_page/edit_ads/017" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/017" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/017" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>018</td>
+                            <td>
+                                {% if ad_query_018.title %}
+                                    {{ad_query_018.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_018.title %}
+
+                                <a href="/ads_page/edit_ads/018" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/018" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/018" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>019</td>
+                            <td>
+                                {% if ad_query_019.title %}
+                                    {{ad_query_019.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_019.title %}
+
+                                <a href="/ads_page/edit_ads/019" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/019" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/019" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>020</td>
+                            <td>
+                                {% if ad_query_020.title %}
+                                    {{ad_query_020.title}}
+                                {% else %}
+                                    No News
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if ad_query_020.title %}
+
+                                <a href="/ads_page/edit_ads/020" class="ns_ad_add_ad">Edit</a>         <!-- this is activated if ad is already uploaded -->
+                                <a href="/del_ads/020" class="ns_ad_delete_ad">Delete</a>
+                                {% else %}
+                                    <a href="/ads_page/add_ads/020" class="ns_ad_add_ad" >Add</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% include 'admin/bottom.html' %}

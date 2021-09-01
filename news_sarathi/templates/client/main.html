@@ -1,0 +1,456 @@
+{% include 'client/top.html' with np_date=np_date %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/font.css' %}">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+<script src="{% static 'javascript/homepage.js' %}"></script>
+<!-- breaking news start -->
+
+    <div class="ticker">
+      <div class="title">
+        <h3>ब्रेकिङ न्युज</h3>
+      </div>
+
+      <div class="news">
+        <marquee>
+          <p>
+           {% for items in breaking_news_all %}
+              {{items.title}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {% endfor %}
+          </p>
+
+        </marquee>
+      </div>
+
+    </div>
+    <!-- breaking news end -->
+
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- heading ends -->
+
+    <!-- main news  latest news and editors choice container start -->
+    <div class="ns_maincontainer">
+
+
+      <!-- main news start -->
+      <div class="ns_main_column">
+        <!-- main news1 start -->
+        {% for items in grihaprista_all%}
+        <div class="ns_card">
+           <div class="ns_container">
+            <h2><a href="/per_page/grihaprista/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">{{items.title}}</a>
+            </h2>
+          </div>
+          <a href="/per_page/grihaprista/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">
+            <img src="{{ items.photo_img.url }}" alt="Avatar">
+          </a>
+
+
+        </div>
+
+        <br><br>
+        {% endfor %}
+        <!-- main news1 end -->
+      </div>
+
+      <!-- main news end -->
+
+      <!-- latest news  and editorials start -->
+      <div class="ns_latest_column">
+        <div class="ns_latest_title">
+          <a>ताजा समाचार</a>
+        </div>
+        <br>
+        <!-- latest news1 start -->
+        {% for items in final_date %}
+        <div class="ns_latest_row">
+          <div class="ns_latest_news_column1">
+            <div class="ns_latest_card">
+              <a href="/per_page/Latestnews/{{items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">
+                <img src="{{items.0.photo_img.url}}" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="ns_latest_news_column2">
+            <a class="ns_paragraph" href="/per_page/Latestnews/{{items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">{{items.0.title}}</a>
+
+            <p class="" >{{ items.1}}</p>
+          </div>
+        </div>
+        <!-- latest news1 end -->
+        <hr>
+        {% endfor %}
+
+        <!-- latest news end -->
+
+        <!-- Editorials Start -->
+        <div class="ns_editorials">
+          <div class="ns_editorials_title">
+            <a>सम्पादकीय</a>
+          </div>
+          <div class="ns_editor">
+            <ul>
+              {% for items in sampadakiya_all%}
+              <li><a href="/per_page/sampadakiya/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">{{items.title}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <br>
+        <!-- Editorials ends -->
+
+      </div>
+      <!-- latest news and editorials end -->
+
+    </div>
+
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_2">
+    </div>
+
+
+    <!--  main news  latest news and editors choice container end -->
+    <!-- *************************************************************************************************************** -->
+
+    <!-- Sanghiya news 3 column container start -->
+    <div class="ns_sanghiya_row">
+
+      <div class="ns_sanghiya_column1">
+
+        <!-- sanghiya main news start -->
+        <button class="ns_btn_sanghiya">संघिय</button>
+        <div class="ns_sanghiya_card">
+          <a href="/per_page/sandhiya/{{ sandhiya_first.date_uploaded | date:"Y-m-d"}}/{{sandhiya_first.id}}">
+            <img src="{{sandhiya_first.photo_img.url}}"
+              alt="Avatar">
+          </a>
+
+          <div class="ns_sanghiya_container">
+            <h3><a href="/per_page/sandhiya/{{ sandhiya_first.date_uploaded | date:"Y-m-d"}}/{{sandhiya_first.id}}">{{sandhiya_first.title}}</a></h3>
+            {% if sandhiya_first.news_summary %}
+            <p class="ns_para">{{sandhiya_first.news_summary}}</p>
+            {% else%}
+            <p class="ns_para"></p>
+            {% endif %}
+            <p class="">समय : {{sandhiya_first_np}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- sanghiya main news end -->
+
+      <!-- sanghiya news list start -->
+      <div class="ns_sanghiya_column2">
+
+        {% for items in final_sandhiya_date%}
+        <!-- sanghiya news1 start -->
+        <div class="ns_sanghiya_list_news_row">
+          <div class="ns_sanghiya_list_column1">
+            <div class="ns_sanghiya_list_card">
+              <a href="/per_page/sandhiya/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">
+                <img src="{{items.0.photo_img.url}}" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="ns_sanghiya_list_column2">
+            <p class="ns_paragraph"> <a href="/per_page/sandhiya/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">{{items.0.title}}</a></p>
+            <p class=""><small>समय : {{ items.1}}</small></p>
+          </div>
+        </div>
+        <hr>
+        <!-- sanghiya news1 end -->
+      {% endfor %}
+      </div>
+      <!-- sanghiya news list end -->
+
+      <!-- sanghiya ad start -->
+
+      <div class="ns_sanghiya_ad_column3">
+        <div class="ns_sanghiya_ad">
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/download.jpg' %}" alt="Avatar" style="width:100%">
+          </div>
+          <div class="ns_sanghiya_ad_card">
+            <img src='https://www.onlinekhabar.com/wp-content/uploads/2021/06/300x200-1.gif' width="100%">
+          </div>
+
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/download.jpg' %}" alt="Avatar" style="width:100%">
+          </div>
+
+        </div>
+      </div>
+      <!-- sanghiy ad end -->
+    </div>
+    <!-- sanghiy news 3 column container end -->
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+
+    <!-- ************************************************************************************* -->
+
+    <!-- isthaniya news start -->
+    <div class="ns_sanghiya_row">
+
+      <div class="ns_sanghiya_column1">
+
+        <!-- isthaniya main news start -->
+        <button class="ns_btn_sanghiya" >स्थानीय</button>
+        <div class="ns_sanghiya_card">
+          <a href="/per_page/esthaniya/{{ esthaniya_first.date_uploaded | date:"Y-m-d"}}/{{esthaniya_first.id}}">
+            <img src="{{esthaniya_first.photo_img.url}}"
+              alt="Avatar">
+          </a>
+          <div class="ns_sanghiya_container">
+            <h3><a href="/per_page/esthaniya/{{ esthaniya_first.date_uploaded | date:"Y-m-d"}}/{{esthaniya_first.id}}">{{esthaniya_first.title}}</a></h3>
+            <p class="ns_para">{{esthaniya_first.news_summary}}</p>
+            <p class="">समय : {{esthaniya_first_np}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- isthaniya main news end -->
+
+      <!-- isthaniya news list start -->
+      <div class="ns_sanghiya_column2">
+
+        {% for items in final_esthaniya_date%}
+        <!-- isthaniya news1 start -->
+        <div class="ns_sanghiya_list_news_row">
+          <div class="ns_sanghiya_list_column1">
+            <div class="ns_sanghiya_list_card">
+              <a href="/per_page/esthaniya/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">
+                <img src="{{items.0.photo_img.url}}" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="ns_sanghiya_list_column2">
+            <p class="ns_paragraph"> <a href="/per_page/esthaniya/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">{{items.0.title}}</a></p>
+            <p class=""><small>समय : {{items.1}}</small></p>
+          </div>
+        </div>
+        <hr>
+        <!-- isthaniya news1 end -->
+        {% endfor %}
+      </div>
+      <!-- isthaniya news list end -->
+
+      <!-- isthaniya ad start -->
+
+      <div class="ns_sanghiya_ad_column3">
+        <div class="ns_sanghiya_ad">
+          <div class="ns_sanghiya_ad_card">
+            <img src='https://www.onlinekhabar.com/wp-content/uploads/2021/06/300x200-1.gif' width="100%">
+          </div>
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/download.jpg' %}" alt="Avatar" style="width:100%">
+          </div>
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/download.jpg' %}" alt="Avatar" style="width:100%">
+          </div>
+
+        </div>
+      </div>
+      <!-- isthaniya ad end -->
+    </div>
+    <!-- isthaniya news 3 column container end -->
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- isthaniya news end -->
+    <!-- ************************************************************************************* -->
+
+
+    <!-- isthaniya news 3 column container end -->
+    <div class="ns_sanghiya_row">
+
+      <div class="ns_sanghiya_column1">
+
+        <!-- khelkud main news start -->
+        <button class="ns_btn_sanghiya">खेलकुद</button>
+        <div class="ns_sanghiya_card">
+          <a href="/per_page/khelud/{{ khelud_first.date_uploaded | date:"Y-m-d"}}/{{khelud_first.id}}">
+            <img src="{{khelud_first.photo_img.url}}"
+              alt="Avatar">
+          </a>
+          <div class="ns_sanghiya_container">
+            <h3><a href="/per_page/khelud/{{ khelud_first.date_uploaded | date:"Y-m-d"}}/{{khelud_first.id}}">{{khelud_first.title}}</a></h3>
+            {% if khelud_first.news_summary %}
+            <p class="ns_para">{{khelud_first.news_summary}}</p>
+            {% else %}
+             <p class="ns_para">{{khelud_first.news_summary}}</p>
+            {% endif %}
+            <p class="">समय : {{khelud_first_np}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- khelkud main news end -->
+
+      <!-- khelkud news list start -->
+      <div class="ns_khelkud_column2">
+        {% for items in final_khelud_date %}
+        <!-- khelkud news1 start -->
+        <div class="ns_khelkud_list_news_row">
+          <div class="ns_khelkud_list_column1">
+            <div class="ns_khelkud_list_card">
+              <a href="/per_page/khelud/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">
+                <img src="{{items.0.photo_img.url}}" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="ns_khelkud_list_column2">
+           <p class="ns_paragraph"><a href="/per_page/khelud/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">{{items.0.title}}</a></p>
+            <p class=""><small>समय : {{items.1}}</small></p>
+          </div>
+        </div>
+        <!-- khelkud news1 end -->
+      {% endfor %}
+
+
+      </div>
+      <!-- khelkud news list end -->
+
+      <!--  Interview start -->
+
+      <div class="ns_interview_column3">
+        <div class="ns_interview">
+          <div class="ns_interview_title">
+            <a>अन्तरवार्ता</a>
+          </div>
+          <br>
+        </div>
+        <div class="ns_interview_container">
+          {% for items in antarbarta_all%}
+          <div class="ns_interview_card">
+            <img src="{{items.photo_img.url}}" alt="Avatar" style="width:100%">
+            <div class="ns_interview_detail">
+
+              <p><a href="/per_page/antarbarta/{{ items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">{{items.title}}</a></p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+      <!-- interview end -->
+
+    </div>
+    <!-- khelkud news 3 column container end -->
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- khelkud news end -->
+
+    <!-- ************************************************************************************* -->
+
+    <!-- international and suchana news start -->
+    <div class="ns_international_container">
+      <div class="ns_international_row">
+
+        <div class="ns_suchana_column">
+          <h2>सूचना-प्रविधि</h2>
+        {% for items in final_suchanapraviti_date%}
+          <!-- suchana news1  start -->
+          <div class="ns_suchana_news_row1">
+            <div class="ns_suchana_news_column1">
+              <div class="ns_suchana_card">
+                <a href="/per_page/suchanapraviti/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">
+                  <img src="{{items.0.photo_img.url}}" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="ns_suchana_news_column2">
+              <a href="/per_page/suchanapraviti/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">{{items.0.title}}</a>
+              <p class=""><small>समय : {{items.1}}</small></p>
+            </div>
+          </div>
+          <!-- suchana news1  end -->
+        {% endfor %}
+
+        </div>
+        <!-- ****************suchana news container end -->
+
+        <!-- international news container start -->
+        <hr>
+        <hr>
+        <div class="ns_international_column">
+          <h2>अन्तराष्ट्रिय</h2>
+
+          {% for items in final_antarastriya_date%}
+          <!-- international news1  start -->
+          <div class="ns_international_news_row1">
+            <div class="ns_international_news_column1">
+              <div class="ns_international_card">
+                <a href="/per_page/antarastriya/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">
+                  <img src="{{items.0.photo_img.url}}" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="ns_international_news_column2">
+              <a href="/per_page/antarastriya/{{ items.0.date_uploaded | date:"Y-m-d"}}/{{items.0.id}}">{{items.0.title}}</a>
+              <p class=""><small>समय : {{items.1}}</small></p>
+            </div>
+          </div>
+          <!-- international news1  end -->
+          {% endfor %}
+        </div>
+        <!-- international news container end -->
+
+      </div>
+    </div>
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- international and suchana news end -->
+
+    <!-- video session start -->
+    <div class="ns_video_container">
+      <h2>भीडीयो</h2>
+      <div class="ns_video_row">
+
+        <!-- main video -->
+        <div class="ns_video_column1">
+
+          <iframe width="100%" height="100%" src="{{youtubelink_first.link}}"
+            title="YouTube video player" frameborder="10px"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+            allowfullscreen></iframe>
+
+        </div>
+
+        <div class="ns_video_column2">
+          {% for items in youtubelink_col_1%}
+          <iframe width="100%" height="100%" src="{{items.link}}"
+            title="YouTube video player" frameborder="10px" allow="accelerometer;
+           clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+          {% endfor %}
+        </div>
+
+        <div class="ns_video_column3">
+          {% for items in youtubelink_col_2 %}
+          <iframe width="100%" height="100%" src="{{items.link}}"
+            title="YouTube video player" frameborder="10px" allow="accelerometer;
+         clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- video session end -->
+
+    {% include 'client/footer.html' %}
+
+    <a href="#" class="to-top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+
+
+    <script src="{% static 'javascript/main.js' %}"></script>
+  </div>
+</body>
+
+</html>

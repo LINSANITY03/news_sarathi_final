@@ -1,0 +1,185 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/smsPoll.css' %}">
+
+<script src="{% static 'javascript/Chart.js'%}"></script>
+<script src="{% static 'javascript/script.js'%}"></script>
+
+<div class="text">SMS Poll</div>
+
+<div class="ns_container">
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading">
+            <a href="{% url 'admin_pollquestion' %}" class="button">Add SMS Poll</a>
+        </div>
+        <div class="ns_poll_details_box">
+
+            <div class="ns_pub_time"><span>Jestha</span></div>
+            <hr>
+
+            <div class="ns_polling_container">
+                <div class="ns_poll_row">
+                    <div class="ns_poll_column1">
+
+                        <div class="ns_poll_question">Q. What is your name? Why are you gay?</div>
+                        <div class="ns_polling_contianer">
+                            <div class="ns_poll_row">
+                                <div class="ns_poll_column1">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ns_poll_column2">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ns_poll_row">
+                                <div class="ns_poll_column1">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ns_poll_column2">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <button class="modal-button button" href="#myModal1" style="background-color: red;"
+                            id="myBtn">Delete</button>
+                    </div>
+                    <div class="ns_poll_column2">
+
+
+                        <canvas id="myChart1" style="width:100%;max-width:600px"></canvas>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="ns_poll_details_box">
+
+            <div class="ns_pub_time"><span>Baisakh</span></div>
+            <hr>
+
+            <div class="ns_polling_container">
+                <div class="ns_poll_row">
+                    <div class="ns_poll_column1">
+
+                        <div class="ns_poll_question">Q. What is your name? Why are you gay?</div>
+                        <div class="ns_polling_contianer">
+                            <div class="ns_poll_row">
+                                <div class="ns_poll_column1">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ns_poll_column2">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ns_poll_row">
+                                <div class="ns_poll_column1">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ns_poll_column2">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="modal-button button" href="#myModal1" style="background-color: red;"
+                            id="myBtn">Delete</button>
+                    </div>
+                    <div class="ns_poll_column2">
+
+
+                        <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <br><br>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal1" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" style="text-align: center;">
+            <div class="modal-header">
+                <span class="close">×</span>
+                <h2>Are you sure want to delete?</h2>
+            </div>
+            <div class="modal-body">
+                <a href="" class="button" style="background-color: red;">Yes</a>
+                <a href="" class="button">No</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="{% static 'javascript/pieChart_data.js' %}"></script>
+<script src="{% static 'javascript/get_poll.js' %}"></script>
+
+{% include 'admin/bottom.html' %}

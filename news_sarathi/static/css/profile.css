@@ -1,0 +1,81 @@
+.ns_profile_container{
+    padding: 30px;
+}
+
+.ns_profile_heading{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.ns_profile_row{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+}
+
+.ns_profile_column1{
+    width: 20%;
+    text-align: -webkit-center;
+}
+
+.ns_profile_column2{
+    width: 80%;
+    margin: 30px;
+}
+
+.ns_profile_column3{
+    width: 30%;
+}
+
+.ns_profile_column4{
+    width: 70%;
+}
+
+.ns_profile_img_size{
+    width:10vw;
+    height:10vw;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid black;
+    margin-top: 20px;
+}
+
+.ns_profile_img_size img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.ns_profile_text{
+    padding: 10px;
+}
+
+.ns_profile_text t1{
+    font-size: 30px;
+}
+
+.ns_profile_text t2{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.ns_profile_text ul li{
+    list-style: none;
+    margin-top: 10px;
+}
+
+.ns_button{
+    background-color: #04AA6D;
+    padding: 5px 50px;
+    border-radius: 25px;
+    font-size: 20px;
+    border: none;
+    color: white;
+    float: right;
+    cursor: pointer;
+}

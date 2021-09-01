@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'images/icon.png' %}"/>
+
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <script src="{% static 'javascript/homepage.js' %}"></script>
+  <title>News Sarathi</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- header start -->
+    <div class="topbar">
+      <a href="#" class="date">{{date_time_today}}</a>
+      <!-- <img class="ns_nav_icon" src="icon.png"> -->
+
+    </div>
+
+    <div class="header">
+      <img class="img-logo" src="{% static 'images/logo1.png' %}" alt="News sarathi logo">
+    </div>
+    <!-- header close -->
+
+    <!-- nav bar start -->
+    <div class="fixed">
+      <div class="topnav" id="myTopnav">
+
+        <div class="topnav_space">
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+          <a href="{% url 'en_main_page' %}" class="active">Home</a>
+          <a href="/en/all_news/article">Article</a>
+          <a href="/en/all_news/interview">Interview</a>
+          <a href="/en/all_news/sports">Sports</a>
+          <a href="/en/all_news/editorial">Editorial</a>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+    <!--nav bar closed -->

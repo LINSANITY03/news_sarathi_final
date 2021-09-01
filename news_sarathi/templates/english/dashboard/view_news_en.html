@@ -1,0 +1,76 @@
+{% include 'english/dashboard/top.html'%}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+
+<div class="text">Edit News</div>
+
+<div class="addnews">
+    <div class="written">
+
+        <label for="title">Title</label>
+        <input type="text" id="title" value="{{news_query.title}}" placeholder="Your Title..." readonly><br><br><br>
+        <label for="author">Author</label>
+        <input type="text" id="author" value="{{news_query.editor_name}}" placeholder="Author Name..." readonly><br><br><br>
+        <label for="time">Time</label>
+        <input type="text" id="time" value="{{news_query.time_uploaded}}" placeholder="Time" readonly><br><br><br>
+        <label for="date">Date</label>
+        <input type="text" id="date" value="{{news_query.date_uploaded | date:"Y-m-d" }}" placeholder="Date" readonly><br><br><br>
+        <label for="datetime">Schedule</label>
+        <input type="text" id="datetime" value="{{news_query.date_time_picker}}" placeholder="Date" readonly><br><br><br>
+
+        <label for="output">SELECT IMAGE:</label><br><br>
+        <div class="profile-pic">
+
+
+            <img src="{{news_query.photo_img.url}}" id="output" width="100px" height="100px"/><br><br>
+            <input readonly id="file" type="file" onchange="loadFile(event)"/><br><br>
+        </div>
+        <br><br>
+        <label for="textarea">NEWS SUMMARY</label>
+        <input id="textarea" value="{{news_query.news_summary}}" placeholder="Write Something..." readonly>
+        <br>
+        <label for="textarea1">DESCRIPTION</label><br><br>
+        {{news_query.description | safe}}
+
+    </div>
+    <div class="add_buttons">
+        {% if news_query.news_type == 'en_news' %}
+        <label for="News">
+            <input type="radio" id="News" name="add" value="News" checked disabled>
+            News
+        </label>
+        {% else %}
+         <label for="News">
+            <input type="radio" id="News" name="add" value="News" disabled>
+            News
+        </label>
+        {% endif %}
+
+        {% if news_query.news_type == 'en_sports' %}
+        <label for="Sports">
+            <input type="radio" id="Sports" name="add" value="Sports" checked disabled>
+            Sports
+        </label>
+        {% else %}
+        <label for="Sports">
+            <input type="radio" id="Sports" name="add" value="Sports" disabled>
+            Sports
+        </label>
+        {% endif %}
+    </div>
+    <div class="pstbt">
+        {% if news_query.news_type == 'en_news' %}
+        <a href="/en/en_national_news_edit/News/{{news_query.date_uploaded | date:"Y-m-d"}}/{{news_query.id}}" class="ns_post_edit">Edit</a>
+        {% elif news_query.news_type == 'en_sports' %}
+        <a href="/en/en_national_news_edit/Sports/{{news_query.date_uploaded | date:"Y-m-d"}}/{{news_query.id}}" class="ns_post_edit">Edit</a>
+        {% else %}
+        {% endif %}
+    </div>
+
+
+</div>
+<script src="javascript/edituser.js"></script>
+
+{% include 'english/dashboard/bottom.html' %}
+

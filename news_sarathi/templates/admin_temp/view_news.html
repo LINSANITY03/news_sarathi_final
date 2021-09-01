@@ -1,0 +1,106 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+{% load widget_tweaks %}
+
+<script src="{% static 'javascript/script.js'%}"></script>
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+
+{% if news_edit.news_type == 'sandhiya' %}
+    <div class="text">News : सांघिय</div>
+{% elif news_edit.news_type == 'pradesh' %}
+    <div class="text">News : पादेश</div>
+{% elif news_edit.news_type == 'esthaniya' %}
+    <div class="text">News : स्थानिय</div>
+{% elif news_edit.news_type == 'manoranjan' %}
+    <div class="text">News : मनोरंजन</div>
+{% endif %}
+<div class="addnews">
+    <div class="written">
+
+        <label for="title">Title</label>
+        <input type="text" id="title" value="{{news_edit.title}}" placeholder="Your Title..." readonly><br><br><br>
+        <label for="author">Author</label>
+        <input type="text" id="author" value="{{news_edit.editor_name}}" placeholder="Author Name..." readonly><br><br><br>
+        <label for="time">Time</label>
+        <input type="text" id="time" value="{{news_edit.time_uploaded}}" placeholder="Time" readonly><br><br><br>
+        <label for="date">Date</label>
+        <input type="text" id="date" value="{{news_edit.date_uploaded}}" placeholder="Date" readonly><br><br><br>
+        <label for="location">Location</label>
+        <input type="text" id="location" value="{{news_edit.location}}" placeholder="Date" readonly><br><br><br>
+
+
+         <label for="img">IMAGE:</label><br><br>
+            <div class="profile-pic">
+               <img src="{{news_edit.photo_img.url}}" id="img" width="100px" height="100px" /><br><br>
+
+           </div>
+
+        <label for="textarea">NEWS SUMMARY</label>
+        <input id="textarea" value="{{news_edit.news_summary}}" placeholder="Write Something..." readonly>
+        <br>
+        <label for="textarea1">DESCRIPTION</label><br><br>
+        {{news_edit.description | safe}}
+
+    </div>
+    <div class="add_buttons">
+        {% if news_edit.news_type == 'sandhiya' %}
+        <label for="सांघिय">
+            <input type="radio" id="सांघिय" name="add" value="सांघिय" checked disabled>
+            सांघिय
+        </label>
+        {% else %}
+        <label for="सांघिय">
+            <input type="radio" id="सांघिय" name="add" value="सांघिय"  disabled>
+            सांघिय
+        </label>
+        {% endif %}
+
+        {% if news_edit.news_type == 'pradesh' %}
+        <label for="पादेश">
+            <input type="radio" id="पादेश" name="add" value="पादेश" checked disabled>
+            पादेश
+        </label>
+        {% else %}
+        <label for="पादेश">
+            <input type="radio" id="पादेश" name="add" value="पादेश" disabled>
+            पादेश
+        </label>
+        {% endif %}
+
+        {% if news_edit.news_type == 'esthaniya' %}
+        <label for="स्थानिय">
+            <input type="radio" id="स्थानिय" name="add" value="स्थानिय" checked disabled>
+            स्थानिय
+        </label>
+        {% else %}
+        <label for="स्थानिय">
+            <input type="radio" id="स्थानिय" name="add" value="स्थानिय" disabled>
+            स्थानिय
+        </label>
+        {% endif %}
+
+        {% if news_edit.news_type == 'manoranjan' %}
+        <label for="मनोरंजन">
+            <input type="radio" id="मनोरंजन" name="add" value="मनोरंजन" checked disabled>
+            मनोरंजन
+        </label>
+        {% else %}
+        <label for="मनोरंजन">
+            <input type="radio" id="मनोरंजन" name="add" value="मनोरंजन" disabled>
+            मनोरंजन
+        </label>
+        {% endif %}
+        <label for="खेलकुद">
+            <input type="radio" id="खेलकुद" name="add" value="खेलकुद" disabled>
+            खेलकुद
+        </label>
+    </div>
+    <div class="pstbt">
+        <a href="/admin_national_news_edit/{{news_edit.news_type}}/{{news_edit.date_uploaded| date:"Y-m-d"}}/{{ news_edit.id }}" class="ns_post_edit">Edit</a>
+        <a href="" class="ns_post_delete">Delete</a>
+    </div>
+
+
+</div>
+
+{% include 'admin/bottom.html' %}

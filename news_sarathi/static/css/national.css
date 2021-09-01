@@ -1,0 +1,143 @@
+.ns_container {    
+    margin: 10px;
+    padding: 0px;
+    text-align: center;
+}
+
+.ns_add_news_btn{
+    float: right;
+    text-decoration: none;
+    color: #11101d;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 18px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 25px;
+    background-color: #04AA6D;
+    cursor: pointer;
+    border: 2px;
+    color: white;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
+}
+th{
+    background-color: #4EABFF;
+    text-align: left;
+}
+.edit{
+    margin-right: 3px;
+    border-radius: 25px;
+    background-color:  #04AA6D;
+	font-size: 15px;
+	cursor: pointer;
+	color: white;
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+}
+
+.main{
+    margin-right: 3px;
+    border-radius: 25px;
+    background-color:  #94870b;
+	font-size: 15px;
+	cursor: pointer;
+	color: white;
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+}
+
+.remove{    
+    border-radius: 25px;
+    background-color:  #fd0606;
+	font-size: 15px;
+	cursor: pointer;
+	color: white;
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+}
+
+
+.btn:hover{
+    color: #04AA6D;
+    background-color: #ffffff;    
+    border: 2px solid #04AA6D;
+}
+.remove:hover{
+    color: #fd0606;
+    background-color: #ffffff;    
+    border: 2px solid #fd0606;
+}
+.pagination {
+    display: inline-block;
+    margin: 10px;
+} 
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.collapsible {
+    background-color: #0e5dae;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 25px;
+    margin:2px;
+    text-align: center;
+  }
+  
+.active, .collapsible:hover {
+    background-color: #4EABFF;
+  }
+  
+.content {
+    
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+.ns_n_news{
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-top: 40px;
+  }
+.tapg{
+    width: 96%;
+    margin: 2%;
+}
+.ns_sn_column{
+    width: 5%;
+}
+.ns_news_column{
+    width: 100px;
+    overflow-x: hidden;
+}
+.ns_time_column{
+    width: 10%;
+}
+.ns_date_column{
+    width: 10%;
+}
+.ns_author_column{
+    width: 15%;
+}
+.ns_action_column{
+    width: 25%;
+}

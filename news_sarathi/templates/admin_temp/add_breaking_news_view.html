@@ -1,0 +1,26 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+
+<script src="{% static 'javascript/script.js'%}"></script>
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+<link rel="stylesheet" href="{% static 'css/breaking_news.css' %}">
+
+<div class="text">Add Breaking News</div>
+
+<div class="addnews">
+    <div class="written">
+
+        <label for="title">TITLE</label>
+        <input type="text" id="title" value="{{breaking_news_query.title}}" placeholder="Your Title..." readonly><br><br><br>
+    </div>
+    
+    <div class="pstbt">
+        <a href="/admin_add_breaking_news_edit/{{breaking_news_query.date_uploaded | date:"Y-m-d"}}/{{breaking_news_query.id}}" class="ns_post edit">Edit</a>
+
+    </div>
+
+
+</div>
+
+
+{% include 'admin/bottom.html' %}

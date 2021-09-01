@@ -1,0 +1,169 @@
+.ns_main_container, .ns_main_container_en {
+    width: 90%;
+    margin: 0 5% 3% 5%;
+    height: auto;
+  }
+  
+  .ns_top_ad_contianer, .ns_top_ad_contianer_en  {
+    width: 100%;
+    display: flex;
+  }
+  
+  .ns_subcontianer, .ns_subcontianer_en {
+    width: 100%;
+    margin: 0% 0 0 0;
+    display: flex;
+  }
+  
+  .ns_top_ad_banner {
+    width: 90%;
+    margin: 0 5% 2% 5%;
+  }
+  
+  .ns_perpage_row,  .ns_perpage_row_en {
+    width: 100%;
+    margin: 0% 0 0 0;
+    display: flex;
+    height: 100%;
+  }
+  
+  .ns_perpage_column1, .ns_perpage_column1_en {
+    width: 70%;
+    float: left;
+    padding: 5px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_perpage_column2, .ns_perpage_column2_en {
+    width: 30%;
+    float: left;
+    padding: 5px;
+    height: 100%;
+    margin: 0.4% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_p_heading, .ns_p_heading_en {
+    text-align: left;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  
+  .ns_p_subtopic, .ns_p_subtopic_en{
+    text-align: left;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    color: red;
+  }
+  
+  .ns_pp_main_image, .ns_pp_main_image_en {
+    width: 100%;
+    height: 100%;
+  
+  }
+ 
+  
+  .ns_p_subheading, .ns_p_subheading_en {
+    text-align: left;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  
+  .ns_p_content, .ns_p_content_en{
+    text-align: justify;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+    line-height: 28px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  
+  .ns_side_ad_container, .ns_side_ad_container_en{
+    width: 99.5%;
+    margin: 5% 0.5% 5% 0%;  
+  }
+  
+  .ns_side_ad, .ns_side_ad_en{
+    width: 100%;
+  }
+  
+  .ns_mid_ad_container, .ns_mid_ad_container_en{
+    width: 94%;
+    margin: 2% 3% 2% 3%;
+  }
+  
+  .ns_mid_ad, .ns_mid_ad_en{
+    width: 100%;
+  }
+  
+  .ns_comment_box{ 
+    height: auto; 
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+  }
+  
+  .ns_comment_box .titleName{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    
+  }
+  
+  .ns_comment_row {
+    width: 100%;
+    margin: 0% 0 0 0;
+    display: flex;
+  }
+  
+  .ns_comment_column1 {
+    width: 10%;
+    float: left;
+    padding: 10px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_comment_column2 {
+    width: 90%;
+    float: left;
+    padding: 10px;
+    height: 100%;
+    margin: 0.5% 0.5% 0.5% 0.5%;
+  }
+  
+  .ns_comment_box .Name{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .ns_comment_box .Date{
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 0px;
+  }
+  
+  .ns_comment_box .Comment{
+    font-size: 15px;
+    font-style: normal;
+    margin-top: 10px;
+  }
+  

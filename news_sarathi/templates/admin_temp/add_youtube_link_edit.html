@@ -1,0 +1,26 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+<script src="{% static 'javascript/script.js'%}"></script>
+<div class="text">Add Breaking News</div>
+
+<div class="addnews">
+    <form action="/admin_add_youtube_post/{{youtubelink_query.date_uploaded | date:"Y-m-d"}}/{{youtubelink_query.id}}" method="post">
+    {% csrf_token %}
+    <div class="written">
+
+        <label for="title">TITLE</label>
+        <input type="text" id="title" name="title" value="{{youtubelink_query.title}}" placeholder="Your Title..." maxlength="200"><br><br><br>
+        <label for="link">LINK</label>
+        <input type="text" id="link" name="link" value="{{youtubelink_query.link}}" placeholder="Your Link..." maxlength="200"><br><br><br>
+
+    </div>
+    
+    <div class="pstbt">
+        <input type="submit" value="Update" class="ns_post">
+    </div>
+    </form>
+
+</div>
+
+{% include 'admin/bottom.html' %}

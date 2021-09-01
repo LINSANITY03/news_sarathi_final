@@ -1,0 +1,322 @@
+{% include 'admin/top.html' with current_user=current_user %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/national.css' %}">
+
+<link href="{% static 'css/toastr.min.css' %}" rel="stylesheet"/>
+<script src="{% static 'javascript/script.js' %}"></script>
+<script src="{% static 'javascript/jquery-1.9.1.min.js' %}"></script>
+<script src="{% static 'javascript/toastr.min.js' %}"></script>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+            {% if message.tags == 'success'%}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'info' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'warning' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'error' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="text">National News</div>
+<a href="{% url 'admin_add_national_news' %}" class="ns_add_news_btn">Add News</a>
+<!-- <a href="add_news.php"><button class="an adnews">ADD NEWS</button></a> -->
+<div class="ns_container">
+
+    <!--add news-->
+
+    <div class="ns_n_news">
+        <!--first-->
+        <button type="button" class="collapsible">सांघिय</button>
+        <div class="content">
+            <div class="tapg">
+                <table id="customers1">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_author_column">Author</th>
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in sandhiya_news%}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="ns_news_column">{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>{{items.editor_name}}</td>
+                        <td>
+                            <a class="btn edit" href="/admin_national_news_view/sandhiya/{{items.date_uploaded | date:"Y-m-d"}}/{{ items.id }}" >View</a>
+                            <a href="/admin_delete_news/sandhiya/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" class="btn remove">Remove</a>
+                            <a class="btn main" href="/admin_add_grihaprista/sandhiya/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" >main</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                 <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if sandhiya_news.has_previous %}
+                  <a href="?page1=1">&laquo; first</a>
+                  <a href="?page1={{ sandhiya_news.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current" >
+                    Page {{ sandhiya_news.number }} of {{ sandhiya_news.paginator.num_pages }}
+                </span>
+
+              {% if sandhiya_news.has_next %}
+                  <a href="?page1={{ sandhiya_news.next_page_number }}">next</a>
+                  <a href="?page1={{ sandhiya_news.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+      <!--end of Pagination-->
+            </div>
+        </div>
+
+        <!--second-->
+
+        <button type="button" class="collapsible">प्रदेश</button>
+        <div class="content">
+            <div class="tapg">
+                <table id="customers2">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_author_column">Author</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in pradesh_news%}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="ns_news_column">{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>{{items.editor_name}}</td>
+                        <td>
+                            <a class="btn edit" href="/admin_national_news_view/pradesh/{{items.date_uploaded | date:"Y-m-d"}}/{{ items.id }}" >View</a>
+                            <a href="/admin_delete_news/pradesh/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" class="btn remove">Remove</a>
+                            <a class="btn main" href="/admin_add_grihaprista/pradesh/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" >main</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                 <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if pradesh_news.has_previous %}
+                  <a href="?page2=1">&laquo; first</a>
+                  <a href="?page2={{ pradesh_news.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current" >
+                    Page {{ pradesh_news.number }} of {{ pradesh_news.paginator.num_pages }}
+                </span>
+
+              {% if pradesh_news.has_next %}
+                  <a href="?page2={{ pradesh_news.next_page_number }}">next</a>
+                  <a href="?pag2={{ pradesh_news.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+      <!--end of Pagination-->
+            </div>
+        </div>
+
+        <!--third-->
+
+        <button type="button" class="collapsible">स्थानिय</button>
+        <div class="content">
+            <div class="tapg">
+                <table id="customers3">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_author_column">Author</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in esthaniya_news%}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="ns_news_column">{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>{{items.editor_name}}</td>
+                        <td>
+                            <a class="btn edit" href="/admin_national_news_view/esthaniya/{{items.date_uploaded | date:"Y-m-d"}}/{{ items.id }}" >View</a>
+                            <a href="/admin_delete_news/esthaniya/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" class="btn remove">Remove</a>
+                            <a class="btn main" href="/admin_add_grihaprista/esthaniya/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" >main</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                 <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if esthaniya_news.has_previous %}
+                  <a href="?page3=1">&laquo; first</a>
+                  <a href="?page3={{ esthaniya_news.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current" >
+                    Page {{ esthaniya_news.number }} of {{ esthaniya_news.paginator.num_pages }}
+                </span>
+
+              {% if esthaniya_news.has_next %}
+                  <a href="?page3={{ esthaniya_news.next_page_number }}">next</a>
+                  <a href="?page3={{ esthaniya_news.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+      <!--end of Pagination-->
+            </div>
+        </div>
+
+        <!--fourth-->
+        <button type="button" class="collapsible">मनोरंजन</button>
+        <div class="content">
+            <div class="tapg">
+                <table id="customers4">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_author_column">Author</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in manoranjan_news%}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="ns_news_column">{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>{{items.editor_name}}</td>
+                        <td>
+                            <a class="btn edit" href="/admin_national_news_view/manoranjan/{{items.date_uploaded | date:"Y-m-d"}}/{{ items.id }}" >View</a>
+                            <a href="/admin_delete_news/manoranjan/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" class="btn remove">Remove</a>
+                            <a class="btn main" href="/admin_add_grihaprista/manoranjan/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" >main</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                 <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if manoranjan_news.has_previous %}
+                  <a href="?page4=1">&laquo; first</a>
+                  <a href="?page4={{ manoranjan_news.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current" >
+                    Page {{ manoranjan_news.number }} of {{ manoranjan_news.paginator.num_pages }}
+                </span>
+
+              {% if manoranjan_news.has_next %}
+                  <a href="?page4={{ manoranjan_news.next_page_number }}">next</a>
+                  <a href="?page4={{ manoranjan_news.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+      <!--end of Pagination-->
+            </div>
+        </div>
+
+        <!--fifth-->
+        <button type="button" class="collapsible">खेलकुद</button>
+        <div class="content">
+            <div class="tapg">
+                <table id="customers5">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+                        <th class="ns_author_column">Author</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in khelud_news%}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="ns_news_column">{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>{{items.editor_name}}</td>
+                        <td>
+                            <a class="btn edit" href="/admin_national_news_view/khelud/{{items.date_uploaded | date:"Y-m-d"}}/{{ items.id }}" >View</a>
+                            <a href="/admin_delete_news/khelud/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" class="btn remove">Remove</a>
+                            <a class="btn main" href="/admin_add_grihaprista/khelud/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}" >main</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                 <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if khelud_news.has_previous %}
+                  <a href="?page5=1">&laquo; first</a>
+                  <a href="?page5={{ khelud_news.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current" >
+                    Page {{ khelud_news.number }} of {{ khelud_news.paginator.num_pages }}
+                </span>
+
+              {% if khelud_news.has_next %}
+                  <a href="?page5={{ khelud_news.next_page_number }}">next</a>
+                  <a href="?page5={{ khelud_news.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+      <!--end of Pagination-->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+</script>
+
+{% include 'admin/bottom.html' %}

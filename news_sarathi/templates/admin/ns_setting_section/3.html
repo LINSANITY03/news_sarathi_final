@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/changepassword.css' %}">
+
+<div class="ns_password_detail">
+    <form action="{% url 'admin_change_password_post' %}" method="post">
+        {% csrf_token %}
+        <label for="password">Current Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter Your current password..">
+        <label for="password">New Password</label>
+        <input type="password" name="passOne" placeholder="Enter Your new password.." id="passOne" minlength="8" maxlength="20">
+        <label for="password">Confirm New Password</label>
+        <input type="password" id="passTwo" name="passTwo" placeholder="Enter Your new password.." minlength="8" maxlength="20">
+        <input type="submit" value="Update">
+    </form>
+
+</div>

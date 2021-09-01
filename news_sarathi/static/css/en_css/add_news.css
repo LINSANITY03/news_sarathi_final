@@ -1,0 +1,136 @@
+.ns_container {    
+    margin: 50px;
+    padding: 0px;
+    text-align: center;
+}
+
+.addnews{
+    padding: 50px;
+}
+
+.written{
+    width: 100%;    
+}
+
+.written label{
+    float: left;
+    margin-top: 10px;
+}
+
+input[type=text] {
+    width: 90%;
+    padding: 12px 20px;
+    float: right;    
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add_buttons{
+    text-align: center;
+    margin: 30px;
+}
+
+.add_buttons label{
+    padding: 15px;
+}
+
+.ad_news{
+    text-align: center;
+}
+
+#textarea{
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#textarea1{
+    width: 100%;
+    height: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.pstbt{
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+
+.ns_post{
+    padding: 8px 50px;
+    background-color: #4EABFF;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    border: 2px;
+}
+
+.ns_post:hover{
+    background-color: white;
+    color: #4EABFF;
+    border: 2px solid #4EABFF;
+}
+
+.ns_post_edit{
+    padding: 8px 50px;
+    background-color: #04AA6D;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    border: 2px;
+}
+
+.ns_post_edit:hover{
+    background-color: white;
+    color: #04AA6D;
+    border: 2px solid #04AA6D;
+}
+
+.ns_post_delete{
+    padding: 8px 50px;
+    background-color: red;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.ns_post_delete:hover{
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+.img_upload{
+    margin-left: 12px;
+    margin-top: 10px;
+    
+}
+.ns_change_profile{
+     
+    height: 200px;
+
+  }
+  .ns_change_profile img{
+    width: 200px;
+    height: 200px;
+  }
+  

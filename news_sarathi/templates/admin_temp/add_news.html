@@ -1,0 +1,64 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+{% load widget_tweaks %}
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+<div class="text">Add News</div>
+
+<div class="addnews">
+    <form action="{% url 'admin_add_national_news_post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="written">
+
+            <label>TITLE</label>
+            {% render_field form.title type="text" name="title" id="title" placeholder="Hello Your Title..." %}
+            <br><br><br>
+
+            <label>AUTHOR</label>
+            {% render_field form.author type="text" name="author" id="author" %}
+
+            <br><br><br>
+
+            <label>LOCATION</label>
+            {% render_field form.location type="text" name="location" id="location" %}
+
+            <br><br><br>
+
+            <div class="profile-pic"><label>SELECT IMAGE:</label><br><br>
+                <img src="{% static 'images/guest-user.jpg' %}" id="output" width="100px" height="100px"/><br><br>
+                {% render_field form.img id="img" name="img" class="img_upload" onchange="loadFile(event)" %}
+            </div>
+            <br><br>
+
+            <label>NEWS SUMMARY</label>
+            {% render_field form.news_summary id="textarea1" %}
+            <br>
+
+            <label>TEXT</label><br><br>
+            {% render_field form.content id="textarea" name="content" maxlength="300" %}
+            {{form.media}}
+
+            <label>SCHEDULE</label><br><br>
+            {{form.scheduler}}
+        </div>
+        <br>
+
+        <br>
+        <br>
+
+
+        <div class="add_buttons">
+            {% render_field form.radio_button %}
+        </div>
+        <div class="pstbt">
+            <input class="ns_post" id="ns_post" type="submit" value="POST">
+        </div>
+
+    </form>
+
+</div>
+
+<script src="{% static 'javascript/script.js'%}"></script>
+<script src="{% static 'javascript/edituser.js' %}"></script>
+<script src="{% static 'javascript/jquery-1.9.1.min.js' %}"></script>
+
+{% include 'admin/bottom.html' %}

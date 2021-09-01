@@ -1,0 +1,189 @@
+{% include 'english/top.html' with date_time_today=date_time_today %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/en_css/perpage.css' %}">
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- heading ends -->
+
+    <!-- main news  latest news and editors choice container start -->
+
+    <!-- body part -->
+    <div class="ns_main_container_en">
+      <div class="ns_subcontianer_en">
+        <div class="ns_perpage_row_en">
+          <div class="ns_perpage_column1_en">
+            <p class="ns_p_heading_en">{{news_object.title}}</p>
+            <hr>
+
+            <img src="{{news_object.photo_img.url}}">
+
+            <hr>
+            <p class="ns_p_subheading_en">{{news_object.editor_name}}, {{news_object.location}}</p>
+            <p class="ns_p_content_en">{{news_object.description | safe}}</p>
+
+          </div>
+
+          <div class="ns_perpage_column2_en">
+            <div class="ns_side_ad_container">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="ns_subcontianer">
+        <div class="ns_perpage_row">
+          <div class="ns_perpage_column1">
+            <hr>
+            <div class="ns_top_banner">
+              <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_3">
+            </div>
+            <hr>
+            <div class="ns_comment_box">
+              <p class="titleName">Recent Comment</p>
+              <hr>
+              <div class="ns_comment_row">
+
+                <div class="ns_comment_column2">
+                  <div class="ns_comment_box">
+                    <p class="Name">Name Here</p>
+                    <p class="Date">Date</p>
+                    <hr>
+                    <p class="Comment">Comments HEre</p>
+
+                  </div>
+
+                </div>
+              </div>
+              <hr>
+              <p class="titleName">Comment Here</p>
+              <div>
+                <form>
+                  <label for="fname">Full Name</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Your Full name..">
+
+                  <label for="email">Email</label>
+                  <input type="text" id="email" name="lastname" placeholder="Enter your email id..">
+                  <label for="textarea1">Comment</label><br>
+                  <textarea id="textarea1" value="" placeholder="Write Something..."></textarea>
+
+
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="ns_perpage_column2">
+            <div class="ns_side_ad_container">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+            <div class="ns_side_ad_container">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- footer session start -->
+    <div class="ns_footer">
+
+      <div class="ns_footer1">
+
+        <div class="ns_footer1_column1">
+
+          <h2>About US</h2>
+
+          <p> <a href="">News Saarathi </a> </p>
+
+
+        </div>
+        <div class="ns_footer1_column2">
+          <h2>INTERACT WITH US</h2>
+          <a href="https://www.facebook.com/radiodhadingnew" class="fab fa-facebook"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-google"></a>
+          <a href="#" class="fab fa-youtube"></a>
+          <a href="#" class="fab fa-instagram"></a>
+
+
+        </div>
+        <div class="ns_footer1_column3">
+          <h2>CONTACT US FOR</h2>
+
+          <p> <a href="#">Write for the Post</a></p>
+
+
+
+          <p><a href="#">Letters to the Editor</a></p>
+
+
+          <p> <a href="#">Advertise in the post</a></p>
+
+          <p><a href="#">Work for the post</a></p>
+
+          <p><a href="#">Send us a tip</a></p>
+
+        </div>
+
+      </div>
+      <!-- footer 1 end -->
+
+      <!-- footer2 copyright start -->
+      <div class="ns_footer2">
+        <div class="ns_copyright">
+
+          © 2020 Copyright:
+          <a class="" href="https://newssarathi.com/">News Sarathi</a>
+
+        </div>
+        <div class="ns_powered">
+          <span>Powered By: <a href='http://cyberinquest.com'>Cyber Inquest Pvt. Ltd.</a></span>
+        </div>
+
+
+
+      </div>
+
+      <!-- footer2 copyright end -->
+
+    </div>
+    <!-- footer session end -->
+    <a href="#" class="to-top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+
+
+    <script src="{% static 'javascript/main.js' %}"></script>
+
+</body>
+
+</html>

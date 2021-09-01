@@ -1,0 +1,148 @@
+{% include 'english/top.html' %}
+{% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/en_css/allpage.css' %}">
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- heading ends -->
+
+    <!-- main news  latest news and editors choice container start -->
+    <!-- body part -->
+    <div class="ns_main_container_en">
+      <div class="ns_subcontianer_en">
+        <div class="ns_perpage_row_en">
+          <div class="ns_perpage_column1_en">
+            <p class="ns_p_subtopic_en">News</p>
+            {% for items in new_objects %}
+            <!-- loop here for news list > stating from here to -->
+            <div class="ns_comment_box_en">
+              <p class="titleName_en">{{items.title}}</p>
+              <div class="ns_newslist_row_en">
+                <div class="ns_newslist_column1_en">
+                  <img class="ns_newslist_img_en" src="{{items.photo_img.url}}">
+
+                </div>
+                <div class="ns_newslist_column2_en">
+                  <p class="ns_newslist_text_en">{{items.news_summary}}</p>
+
+                  <a href="/en/per_page/{{news_types}}/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">See More</a>
+
+                </div>
+              </div>
+            </div>
+            <br>
+            {% endfor %}
+            <!-- loop here for news list > till here -->
+          </div>
+
+          <!-- Side ads start here -->
+
+          <div class="ns_perpage_column2_en">
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad_en" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad_en" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad_en" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad_en" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad_en" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad_en" src="{% static 'images/data/ad/859580409Radio-Dhading-add-1.gif' %}">
+            </div>
+            <div class="ns_side_ad_container_en">
+              <img class="ns_side_ad_en" src="{% static 'images/data/ad/1745208379baideek.png' %}">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- footer session start -->
+    <div class="ns_footer">
+
+      <div class="ns_footer1">
+
+        <div class="ns_footer1_column1">
+
+          <h2>About US</h2>
+
+          <p> <a href="">News Saarathi </a> </p>
+
+
+        </div>
+        <div class="ns_footer1_column2">
+          <h2>INTERACT WITH US</h2>
+          <a href="https://www.facebook.com/radiodhadingnew" class="fab fa-facebook"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-google"></a>
+          <a href="#" class="fab fa-youtube"></a>
+          <a href="#" class="fab fa-instagram"></a>
+
+
+        </div>
+        <div class="ns_footer1_column3">
+          <h2>CONTACT US FOR</h2>
+
+          <p> <a href="#">Write for the Post</a></p>
+
+
+
+          <p><a href="#">Letters to the Editor</a></p>
+
+
+          <p> <a href="#">Advertise in the post</a></p>
+
+          <p><a href="#">Work for the post</a></p>
+
+          <p><a href="#">Send us a tip</a></p>
+
+        </div>
+
+      </div>
+      <!-- footer 1 end -->
+
+      <!-- footer2 copyright start -->
+      <div class="ns_footer2">
+        <div class="ns_copyright">
+
+          © 2020 Copyright:
+          <a class="" href="https://newssarathi.com/">News Sarathi</a>
+
+        </div>
+        <div class="ns_powered">
+          <span>Powered By: <a href='http://cyberinquest.com'>Cyber Inquest Pvt. Ltd.</a></span>
+        </div>
+
+
+
+      </div>
+
+      <!-- footer2 copyright end -->
+
+    </div>
+    <!-- footer session end -->
+    <a href="#" class="to-top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+
+
+    <script src="{% static 'javascript/main.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+.ns_container {    
+    margin: 10px;
+    padding: 0px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+.ns_poll_heading {
+    text-align: center;
+}
+
+.button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    margin: 2%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.ns_poll_details_box {
+    background-color: rgb(184, 184, 184);
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.ns_poll_container {
+    width: 96%;
+    margin: 2%;
+}
+
+.ns_polling_container {
+    width: 100%;
+}
+
+.ns_poll_row {
+    width: 100%;
+    display: flex;
+}
+
+.ns_poll_column1 {
+    width: 48%;
+    margin: 1%;
+    float: left;
+}
+
+.ns_poll_column2 {
+    width: 48%;
+    margin: 1%;
+    float: left;
+}
+
+.ns_pub_time {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+}
+
+.ns_pub_time span {
+    margin-top: 50px;
+}
+
+.ns_poll_question {
+    margin: 20px;
+    font-size: 30px;
+}
+
+.ns_number_img {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.ns_option_row {
+    width: 96%;
+    margin: 2%;
+    display: flex;
+}
+
+.ns_option_col1 {
+    width: 13%;
+    margin: 1%;
+    float: left;
+    text-align: center;
+}
+
+.ns_option_col2 {
+    width: 84%;
+    margin: 1%;
+    float: left;
+}
+
+.ns_poll_options {
+    font-size: 25px;
+    margin: 5%;
+}
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}

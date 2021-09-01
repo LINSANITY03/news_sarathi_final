@@ -1,0 +1,21 @@
+
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+<script src="{% static 'javascript/script.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+
+<div class="text">हाम्राे बारेमा</div>
+<div class="ns_container">
+    <div class="ns_aboutus_container">
+        <form>
+            <div class="ns_about_text">
+                {{about_us_1.content | safe}}
+                <br><br>
+                <a href="{% url 'admin_AboutUs_edit' %}" class="ns_edit_aboutus">Edit</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% include 'admin/bottom.html' %}

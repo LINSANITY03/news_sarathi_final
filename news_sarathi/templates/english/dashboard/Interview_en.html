@@ -1,0 +1,65 @@
+{% include 'english/dashboard/top.html'%}
+{% load static %}
+
+
+<script src="{% static 'javascript/national.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/all_news.css' %}">
+
+<div class="text">Interview</div>
+<div class="ns_container">
+    <div class="all">
+        <div class="ns_adbnews">
+            <a href="/en/en_interview_news/en_add_news/interview" class="ns_add_news_btn">ADD Interview</a><br><br>
+        </div>
+        <div class="table">
+            <table id="customers">
+                <tr>
+                    <th>SN</th>
+                    <th>News</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Author</th>
+                    <th>Action</th>
+                </tr>
+                {% for items in interview_all%}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{items.title}}</td>
+                    <td>{{items.time_uploaded}}</td>
+                    <td>{{items.date_uploaded}}</td>
+                    <td>{{items.editor_name}}</td>
+                    <td>
+                        <a class="btn edit" href="/en/view/interview/{{items.date_uploaded| date:"Y-m-d"}}/{{items.id }}" >View</a>
+                        <a href="" class="btn remove">Remove</a>
+                        <a class="btn main" href="/en/en_main_news_add/interview/{{items.date_uploaded| date:"Y-m-d"}}/{{items.id }}">main</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+         <!--Pagination-->
+                <div class="container p-4">
+                    <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if interview_all.has_previous %}
+                  <a href="?page=1">&laquo; first</a>
+                  <a href="?page={{ interview_all.previous_page_number }}">previous</a>
+              {% endif %}
+
+                <span class="current">
+                    Page {{ interview_all.number }} of {{ interview_all.paginator.num_pages }}
+                </span>
+
+              {% if interview_all.has_next %}
+                  <a href="?page={{ interview_all.next_page_number }}">next</a>
+                  <a href="?page={{ interview_all.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+                    </div>
+                </div>
+                <!--end of Pagination-->
+
+    </div>
+</div>
+
+{% include 'english/dashboard/bottom.html' %}

@@ -1,0 +1,413 @@
+{% include 'english/top.html' with date_time_today=date_time_today %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/en_css/main.css' %}">
+
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- heading ends -->
+
+    <!-- main news  latest news and editors choice container start -->
+    <div class="ns_maincontainer_en">
+
+
+      <!-- main news start -->
+      <div class="ns_main_column_en">
+
+        <!-- main news1 start -->
+        {% for items in main_news_all %}
+        <div class="ns_card_en">
+          <a href="/en/per_page/main_news/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">
+            <img src="{{items.photo_img.url}}" alt="Avatar">
+          </a>
+          <div class="ns_container_en">
+            <h2><a href="/en/per_page/main_news/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">{{items.title}}</a>
+            </h2>
+
+          </div>
+
+        </div>
+
+        <br><br>
+        {% endfor %}
+        <!-- main news1 end -->
+      </div>
+
+      <!-- main news end -->
+
+      <div class="ns_latest_column_en">
+        <div class="ns_latest_title_en">
+          <a>Latest News</a>
+        </div>
+        <br>
+        {% for items in en_latest_news_all%}
+        <!-- latest news1 start -->
+        <div class="ns_latest_row_en">
+          <div class="ns_latest_news_column1_en">
+            <div class="ns_latest_card_en">
+              <a href="#">
+                <img src="{{items.photo_img.url}}" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="ns_latest_news_column2_en">
+            <a href="#">{{items.title}}</a>
+            <p class="">Date: {{items.date_uploaded | date:"Y-m-d"}}</p>
+          </div>
+        </div>
+        <!-- latest news1 end -->
+        {% endfor %}
+        <br>
+        <hr>
+        <!-- latest news end -->
+
+        <!-- Editorials Start -->
+        <div class="ns_editorials_en">
+          <div class="ns_editorials_title_en">
+            <a>Editorial</a>
+          </div>
+          <div class="ns_editor_en">
+            <ul>
+              {% for items in en_editorial_all%}
+              <li><a href="/en/per_page/editorial/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">{{items.title}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <br>
+        <!-- Editorials ends -->
+
+      </div>
+      <!-- latest news and editorials end -->
+
+    </div>
+
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_2">
+    </div>
+
+
+    <!--  main news  latest news and editors choice container end -->
+    <!-- *************************************************************************************************************** -->
+    <!-- Sanghiya news 3 column container start -->
+    <div class="ns_sanghiya_row_en">
+
+      <div class="ns_sanghiya_column1_en">
+
+        <!-- sanghiya main news start -->
+        <button class="ns_btn_sanghiya_en">News</button>
+        <div class="ns_sanghiya_card_en">
+          <a href="/en/per_page/news/{{en_news_first.date_uploaded | date:"Y-m-d"}}/{{en_news_first.id}}">
+            <img src="{{en_news_first.photo_img.url}}"
+              alt="Avatar">
+          </a>
+          <div class="ns_sanghiya_container_en">
+            <h3><a href="/en/per_page/news/{{en_news_first.date_uploaded | date:"Y-m-d"}}/{{en_news_first.id}}">{{en_news_first.title}}</a></h3>
+            <p class="ns_para">{{en_news_first.news_summary}}
+             </p>
+             <p class=""><small>Date: {{en_news_first.date_uploaded | date:"Y-m-d"}}</small></p>
+          </div>
+        </div>
+      </div>
+      <!-- sanghiya main news end -->
+
+      <!-- sanghiya news list start -->
+      <div class="ns_sanghiya_column2_en">
+
+        {% for items in en_news_rest%}
+        <!-- sanghiya news1 start -->
+        <div class="ns_sanghiya_list_news_row_en">
+          <div class="ns_sanghiya_list_column1_en">
+            <div class="ns_sanghiya_list_card_en">
+              <a href="/en/per_page/news/{{en_news_first.date_uploaded | date:"Y-m-d"}}/{{en_news_first.id}}">
+                <img src="{{items.photo_img.url}}" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="ns_sanghiya_list_column2_en">
+            <p> <a class="ns_paragraph" href="/en/per_page/news/{{en_news_first.date_uploaded | date:"Y-m-d"}}/{{en_news_first.id}}">{{items.title}}</a></p>
+            <p class=""><small>Date: {{en_news_first.date_uploaded | date:"Y-m-d"}}</small></p>
+          </div>
+        </div>
+        <hr>
+        <!-- sanghiya news1 end -->
+        {% endfor %}
+      </div>
+      <!-- sanghiya news list end -->
+
+      <!-- sanghiya ad start -->
+
+      <div class="ns_sanghiya_ad_column3">
+        <div class="ns_sanghiya_ad">
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/rulingpartyconflict-1604280496.jpg' %}" alt="Avatar" style="width:100%">
+          </div>
+          <div class="ns_sanghiya_ad_card">
+            <img src='https://www.onlinekhabar.com/wp-content/uploads/2021/06/300x200-1.gif' width="100%">
+          </div>
+
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/rulingpartyconflict-1604280496.jpg' %}" alt="Avatar" style="width:100%">
+          </div>
+
+        </div>
+      </div>
+      <!-- sanghiy ad end -->
+    </div>
+    <!-- sanghiy news 3 column container end -->
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+
+    <!-- ************************************************************************************* -->
+
+    <!--Sports news 3 column container start -->
+    <div class="ns_sanghiya_row_en">
+
+      <div class="ns_sanghiya_column1_en">
+
+        <!-- Sports main news start -->
+        <button class="ns_btn_sanghiya_en">Sports</button>
+        <div class="ns_sanghiya_card_en">
+          <a href="/en/per_page/sports/{{en_sports_first.date_uploaded | date:"Y-m-d"}}/{{en_sports_first.id}}">
+            <img src="{{en_sports_first.photo_img.url}}"
+              alt="Avatar">
+          </a>
+          <div class="ns_sanghiya_container_en">
+            <h3><a href="/en/per_page/sports/{{en_sports_first.date_uploaded | date:"Y-m-d"}}/{{en_sports_first.id}}">{{en_sports_first.title}}</a></h3>
+            <p><a  class="ns_para">{{en_sports_first.news_summary}}</a></p>
+              <p class=""><small>Date: {{en_news_first.date_uploaded | date:"Y-m-d"}}</small></p>
+          </div>
+        </div>
+      </div>
+      <!-- Sports main news end -->
+
+      <!-- Sports news list start -->
+      <div class="ns_sanghiya_column2_en">
+
+        {% for items in en_sports_rest%}
+        <!-- Sports news1 start -->
+        <div class="ns_sanghiya_list_news_row_en">
+          <div class="ns_sanghiya_list_column1_en">
+            <div class="ns_sanghiya_list_card_en">
+              <a href="/en/per_page/sports/{{en_sports_first.date_uploaded | date:"Y-m-d"}}/{{en_sports_first.id}}">
+                <img src="{{items.photo_img.url}}"  alt="">
+              </a>
+            </div>
+          </div>
+          <div class="ns_sanghiya_list_column2_en">
+            <p> <a class="ns_paragraph" href="/en/per_page/sports/{{en_sports_first.date_uploaded | date:"Y-m-d"}}/{{en_sports_first.id}}">{{items.title}}</a></p>
+            <p class=""><small>Date: {{en_news_first.date_uploaded | date:"Y-m-d"}}</small></p>
+          </div>
+        </div>
+        <hr>
+        <!-- Sports news1 end -->
+        {% endfor %}
+      </div>
+      <!-- Sports news list end -->
+
+      <!-- Sports ad start -->
+
+      <div class="ns_sanghiya_ad_column3">
+        <div class="ns_sanghiya_ad">
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/rulingpartyconflict-1604280496.jpg' %}"  alt="Avatar" style="width:100%">
+          </div>
+          <div class="ns_sanghiya_ad_card">
+            <img src='https://www.onlinekhabar.com/wp-content/uploads/2021/06/300x200-1.gif' width="100%">
+          </div>
+
+          <div class="ns_sanghiya_ad_card">
+            <img src="{% static 'images/main_news/rulingpartyconflict-1604280496.jpg' %}"  alt="Avatar" style="width:100%">
+          </div>
+
+        </div>
+      </div>
+      <!-- Sports ad end -->
+    </div>
+    <!-- Sports news 3 column container end -->
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}"  class="ns_banner_1">
+    </div>
+
+    <!-- ************************************************************************************* -->
+
+    <!-- Article and Interview news start -->
+    <div class="ns_international_container_en">
+      <div class="ns_international_row_en">
+
+        <div class="ns_suchana_column_en">
+          <h2>Article</h2>
+
+          {% for items in en_article_all%}
+          <!-- Article news1  start -->
+          <div class="ns_suchana_news_row1_en">
+            <div class="ns_suchana_news_column1_en">
+              <div class="ns_suchana_card_en">
+                <a href="/en/per_page/sports/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">
+                  <img src="{{items.photo_img.url}}" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="ns_suchana_news_column2_en">
+              <a class="ns_paragraph" href="/en/per_page/sports/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">{{items.title}}</a>
+              <p class=""><small>Date: {{items.date_uploaded | date:"Y-m-d"}}</small></p>
+            </div>
+          </div>
+          <!-- Article news1  end -->
+          {% endfor %}
+        </div>
+        <!-- ****************Article news container end -->
+
+        <!-- Interview news container start -->
+        <hr>
+        <hr>
+        <div class="ns_international_column_en">
+          <h2>Interview</h2>
+
+          {% for items in en_interview_all%}
+          <!-- Interview news1  start -->
+          <div class="ns_suchana_news_row1_en">
+            <div class="ns_suchana_news_column1_en">
+              <div class="ns_suchana_card_en">
+                <a href="/en/per_page/sports/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">
+                  <img src="{{items.photo_img.url}}" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="ns_suchana_news_column2_en">
+              <a class="ns_paragraph" href="/en/per_page/sports/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}">{{items.title}}</a>
+              <p class=""><small>Date: {{items.date_uploaded | date:"Y-m-d"}}</small></p>
+            </div>
+          </div>
+          <!-- Interview news1  end -->
+          {% endfor %}
+        </div>
+        <!-- Interview news container end -->
+
+      </div>
+    </div>
+    <div class="ns_top_banner">
+      <img src="{% static 'images/data/ad/Cyber_Inquest_Banner.gif' %}" class="ns_banner_1">
+    </div>
+    <!-- Interview and suchana news end -->
+    <!-- ********************************************************************************** -->
+
+    <!-- video session start -->
+    <div class="ns_video_container">
+      <h2>Video</h2>
+      <div class="ns_video_row">
+
+        <!-- main video -->
+        <div class="ns_video_column1">
+
+          <iframe width="100%" height="100%" src="{{youtubelink_first.link}}"
+            title="YouTube video player" frameborder="10px"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        </div>
+
+        <div class="ns_video_column2">
+          {% for items in youtubelink_col_1 %}
+
+          <iframe width="100%" height="100%" src="{{items.link}}"
+            title="YouTube video player" frameborder="10px" allow="accelerometer; autoplay;
+           clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+          {% endfor %}
+
+        </div>
+
+        <div class="ns_video_column3">
+          {% for items in youtubelink_col_2%}
+          <iframe width="100%" height="100%" src="{{items.link}}"
+            title="YouTube video player" frameborder="10px" allow="accelerometer; autoplay;
+         clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- video session end -->
+
+    <!-- footer session start -->
+    <div class="ns_footer">
+
+      <div class="ns_footer1">
+
+        <div class="ns_footer1_column1">
+
+          <h2>About US</h2>
+
+          <p> <a href="">News Saarathi </a> </p>
+
+
+        </div>
+        <div class="ns_footer1_column2">
+          <h2>INTERACT WITH US</h2>
+          <a href="https://www.facebook.com/radiodhadingnew" class="fab fa-facebook"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-google"></a>
+          <a href="#" class="fab fa-youtube"></a>
+          <a href="#" class="fab fa-instagram"></a>
+
+
+        </div>
+        <div class="ns_footer1_column3">
+          <h2>CONTACT US FOR</h2>
+
+          <p> <a href="#">Write for the Post</a></p>
+  
+  
+  
+          <p><a href="#">Letters to the Editor</a></p>
+  
+  
+          <p> <a href="#">Advertise in the post</a></p>
+  
+          <p><a href="#">Work for the post</a></p>
+  
+          <p><a href="#">Send us a tip</a></p>
+  
+        </div>
+
+      </div>
+      <!-- footer 1 end -->
+
+      <!-- footer2 copyright start -->
+      <div class="ns_footer2">
+        <div class="ns_copyright">
+
+          © 2020 Copyright:
+          <a class="" href="https://newssarathi.com/">News Sarathi</a>
+
+        </div>
+        <div class="ns_powered">
+          <span>Powered By: <a href='http://cyberinquest.com'>Cyber Inquest Pvt. Ltd.</a></span>
+        </div>
+
+
+
+      </div>
+
+      <!-- footer2 copyright end -->
+
+    </div>
+    <!-- footer session end -->
+    <a href="#" class="to-top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+
+
+    <script src="{% static 'javascript/main.js' %}"></script>
+
+  </div>
+</body>
+
+</html>

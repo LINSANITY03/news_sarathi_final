@@ -1,0 +1,63 @@
+{% include 'english/dashboard/top.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+
+<div class="text">Add News</div>
+
+<div class="addnews">
+
+    <form action="{% url 'en_add_news_post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="written">
+            <label>TITLE</label>
+            {% render_field form.title type="text" name="title" id="title" placeholder="Your Title..." %}
+            <br><br><br>
+
+            <label>AUTHOR</label>
+            {% render_field form.editor_name type="text" name="editor_name" id="editor_name" placeholder="Author Name..." %}
+
+            <br><br><br>
+
+            <label>LOCATION</label>
+            {% render_field form.location type="text" name="location" id="location" placeholder="Location..." %}
+
+            <br><br><br>
+
+            <div class="profile-pic"><label>SELECT IMAGE:</label><br><br>
+                <img src="{% static 'images/guest-user.jpg' %}" id="output" width="100px" height="100px"/><br><br>
+                {% render_field form.photo_img id="photo_img" name="photo_img" class="img_upload" onchange="loadFile(event)" %}
+            </div>
+            <br><br>
+
+            <label>NEWS SUMMARY</label>
+            {% render_field form.news_summary id="textarea1" name="news_summary" placeholder="News Summary..." %}
+            <br>
+
+            <label>TEXT</label><br><br>
+            {% render_field form.description id="description" name="description" maxlength="300" %}
+            {{form.media}}
+
+            <label>SCHEDULE</label><br><br>
+            {{form.date_time_picker}}
+
+        </div>
+        <br>
+
+        <br>
+        <br>
+         <div class="add_buttons">
+            {% render_field form.radio_button %}
+        </div>
+        <div class="pstbt">
+            <input class="ns_post" id="ns_post" type="submit" value="POST">
+        </div>
+
+    </form>
+
+</div>
+<script src="{% static 'javascript/edituser.js' %}"></script>
+
+{% include 'admin/bottom.html' %}

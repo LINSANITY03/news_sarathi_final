@@ -1,0 +1,68 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+{% load widget_tweaks %}
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+<script src="{% static 'javascript/edituser.js' %}"></script>
+<script src="{% static 'javascript/script.js' %}"></script>
+{% if news_edit.news_type == "sandhiya" %}
+<div class="text">Edit News : सांघिय</div>
+{% else %}
+{% endif %}
+
+<div class="addnews">
+    <form action="/admin_national_news_post/{{news_edit.news_type}}/{{news_edit.date_uploaded | date:'Y-m-d'}}/{{ news_edit.id }}"
+          method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="written">
+            <!--        {{form.as_p}}-->
+            <!--        {{form.media}}-->
+
+            <label>TITLE</label>
+            {% render_field form.title %}
+            <br><br><br>
+
+            <label>AUTHOR</label>
+            {% render_field form.editor_name %}
+
+            <br><br><br>
+
+            <label for="time">Time</label>
+            <input type="text" id="time" name="time" value="{{news_edit.time_uploaded}}" placeholder="Time"
+                   readonly><br><br><br>
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date" value="{{news_edit.date_uploaded| date:'Y-m-d'}}"
+                   placeholder="Date" readonly><br><br><br>
+            <label>LOCATION</label>
+            {% render_field form.location %}
+
+            <br><br><br>
+
+            <input type="text" id="news_id" value="" placeholder="News_ID" hidden>
+
+
+            <div class="profile-pic"><label>SELECT IMAGE:</label><br><br>
+                <img src={{news_edit.photo_img.url}} id="output" width="100px" height="100px"/><br><br>
+                {% render_field form.photo_img id="img" name="img" class="img_upload" onchange="loadFile(event)" %}
+            </div>
+            <br><br>
+
+            <label>NEWS SUMMARY</label>
+            <br><br>
+            {% render_field form.news_summary id="textarea1" %}
+            <br>
+
+            <label>TEXT</label><br><br>
+            {% render_field form.description %}
+            {{form.media}}
+
+        </div>
+
+
+        <div class="pstbt">
+            <input class="ns_post_edit" type="submit" value="Update">
+        </div>
+    </form>
+
+</div>
+
+{% include 'admin/bottom.html' %}

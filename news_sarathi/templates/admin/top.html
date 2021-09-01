@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+    <title> News Sarathi</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.css' %}">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <img src="{% static 'images/icon.png' %}" alt="" class="ns_favicon">
+            <div class="logo_name">
+                <img src="{% static 'images/logo12.png' %}" class="ns_name">
+            </div>
+
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            {% if current_user.profile.authorization == 'Ads' %}
+             <li>
+                <a href="{% url 'admin_home' %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">ड्यासबोर्ड</span>
+                </a>
+                <span class="tooltip">ड्यासबोर्ड</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_setting' %}">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">सेटिंग</span>
+                </a>
+                <span class="tooltip">सेटिंग</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+
+                    <img src="{{current_user.profile.photo_img.url}}" alt="profileImg">
+
+                    <div class="name_job">
+                        <div class="name">{{current_user.username}}</div>
+                        {% if current_user.profile.authorization == 'All' %}
+                            <div class="job">Admin</div>
+                        {% elif current_user.profile.authorization == 'News'%}
+                            <div class="job">News Editor</div>
+                        {% elif current_user.profile.authorization == 'Ads' %}
+                            <div class="job">Ads Manager</div>
+                        {% else %}
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="div_log_out">
+                <a href="{% url 'logged_out' %}" class="log_out">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+                </div>
+            </li>
+
+            {% else %}
+            <li>
+                <a href="{% url 'admin_home' %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">ड्यासबोर्ड</span>
+                </a>
+                <span class="tooltip">ड्यासबोर्ड</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_nationaNews' %}">
+                   <i class='bx bx-news'></i>
+                    <span class="links_name">समाचार</span>
+                </a>
+                <span class="tooltip">समाचार</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_Interview' %}">
+                    <i class='bx bx-microphone'></i>
+                    <span class="links_name">अन्तरवार्ता</span>
+                </a>
+                <span class="tooltip">अन्तरवार्ता</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_Thoughts' %}">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">विचार/लेख</span>
+                </a>
+                <span class="tooltip">विचार/लेख</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_it_news' %}">
+                    <i class='bx bx-microchip'></i>
+                    <span class="links_name">सूचना प्रविधि</span>
+                </a>
+                <span class="tooltip">सूचना प्रविधि</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_InternationalNews' %}">
+                    <i class='bx bx-world'></i>
+                    <span class="links_name">अन्तर्राष्ट्रिय</span>
+                </a>
+                <span class="tooltip">अन्तर्राष्ट्रिय</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_Editorial' %}">
+                    <i class='bx bxs-message-edit'></i>
+                    <span class="links_name">सम्पादकीय</span>
+                </a>
+                <span class="tooltip">सम्पादकीय</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_AboutUs' %}">
+                    <i class="fas fa-address-card"></i>
+                    <span class="links_name">हाम्राे बारेमा</span>
+                </a>
+                <span class="tooltip">हाम्राे बारेमा</span>
+            </li>
+            <li>
+                <a href="{% url 'admin_setting' %}">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">सेटिंग</span>
+                </a>
+                <span class="tooltip">सेटिंग</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    {% if current_user.profile.photo_img.url %}
+                    <img src="{{current_user.profile.photo_img.url}}" alt="profileImg">
+                    {% else %}
+                    <img src="" alt="profileImg">
+                    {% endif%}
+                    <div class="name_job">
+                        <div class="name">{{current_user.username}}</div>
+                        {% if current_user.profile.authorization == 'All' %}
+                            <div class="job">Admin</div>
+                        {% elif current_user.profile.authorization == 'News'%}
+                            <div class="job">News Editor</div>
+                        {% elif current_user.profile.authorization == 'Ads' %}
+                            <div class="job">Ads Manager</div>
+                        {% else %}
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="div_log_out">
+                <a href="{% url 'logged_out' %}" class="log_out">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+                </div>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
+    <section class="home-section">

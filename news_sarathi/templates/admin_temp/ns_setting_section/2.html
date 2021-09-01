@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/authorize.css' %}">
+
+<div class="ns_authorize_description">
+    <table id="ns_authorize_list">
+        <tr>
+            <th>SN.</th>
+            <th>User Name</th>
+            <th>Name</th>
+            <th>Permission</th>
+            <th>Status</th>
+        </tr>
+        {% for items in admin_users %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{items.user.username}}</td>
+            <td>{{items.fullname}}</td>
+            <td>{{items.authorization}}</td>
+
+            <td>
+                <a class="edit" href="/admin_edit_user/{{items.authorization}}/{{items.user_id}}" >Edit</a>
+                <a href="/admin_user_delete/{{items.authorization}}/{{items.user_id}}"><button class="remove">Delete</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/admin_add_user/">
+        <button class="ns_button">Add User</button>
+    </a>
+</div>

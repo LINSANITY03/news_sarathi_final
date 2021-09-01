@@ -1,0 +1,475 @@
+{% include 'admin/top.html' with current_user=current_user%}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/smsPoll.css' %}">
+<link rel="stylesheet" href="{% static 'css/breaking_news.css' %}">
+
+<script src="{% static 'javascript/Chart.js'%}"></script>
+<script src="{% static 'javascript/script.js'%}"></script>
+<link href="{% static 'css/toastr.min.css' %}" rel="stylesheet"/>
+<script src="{% static 'javascript/jquery-1.9.1.min.js' %}"></script>
+<script src="{% static 'javascript/toastr.min.js' %}"></script>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+            {% if message.tags == 'success'%}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'info' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'warning' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'error' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="text">Hello {{current_user.username}}</div>
+<br>
+{% if current_user.profile.authorization == 'Ads' %}
+
+{% else %}
+    <a href="/en/en_admin_home/" class="ns_add_news_btn">English Panel</a><br><br>
+{% endif %}
+
+
+
+<div class="ns_container">    
+    {% if current_user.profile.authorization == 'Ads' %}
+    {% else %}
+     <hr>
+<!--breaking News-->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_collapsible">
+            <div class="topic">Breaking News</div>
+            <div class="ns_adbnews">
+                <a href="{% url 'admin_add_breaking_news' %}" class="ns_add_news_btn">ADD Breaking News</a><br><br>
+            </div>
+        </div>
+        <div class="all">
+
+            <div class="table">
+                <table id="customers">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in breaking_news_all%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>
+                            <a href="/admin_add_breaking_news_view/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}"
+                            class="btn edit">View</a>
+                            <a href="/admin_delete_news/breaking_news/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}"
+                            class="btn remove">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+            <!--Pagination-->
+            <div class="container p-4">
+                <div class="justify-content-center">
+                    <span class="step-links">
+                        <div class="ns_pagi_row">
+                            <div class="ns_pagi_col1">
+                                  {% if breaking_news_all.has_previous %}
+                                      <a href="?page_breaking_news_all=1">&laquo; First</a>
+                                      <a href="?page_breaking_news_all={{ breaking_news_all.previous_page_number }}">previous</a>
+                                  {% endif %}
+                            </div>
+
+                            <div class="ns_pagi_col2">
+                                <span class="current">
+                                    Page {{ breaking_news_all.number }} of {{ breaking_news_all.paginator.num_pages }}
+                                </span>
+                            </div>
+
+                            <div class="ns_pagi_col3">
+                              {% if breaking_news_all.has_next %}
+                                  <a href="?page_breaking_news_all={{ breaking_news_all.next_page_number }}">next</a>
+                                  <a href="?page_breaking_news_all={{ breaking_news_all.paginator.num_pages }}">Last &raquo;</a>
+                              {% endif %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <!--end of Pagination-->
+
+        </div>
+    </div>
+
+    <hr>
+<!--    Main News-->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_collapsible">
+
+            <div class="ns_adbnews">
+                <div class="topic">Main News</div>
+                <br><br>
+            </div>
+        </div>
+        <div class="all">
+
+            <div class="table">
+                <table id="customers1">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in main_news_all%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>
+                            <a href="/admin_delete_news/grihaprista/{{items.date_uploaded | date:" Y-m-d"}}/{{items.id}}"
+                            class="btn remove">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+
+            <!--Pagination-->
+            <div class="container p-4">
+                <div class="justify-content-center">
+                    <span class="step-links">
+                        <div class="ns_pagi_row">
+                            <div class="ns_pagi_col1">
+                                {% if main_news_all.has_previous %}
+                                  <a href="?page_main_news_all=1">&laquo; First</a>
+                                  <a href="?page_main_news_all={{ main_news_all.previous_page_number }}">previous</a>
+                                {% endif %}
+                            </div>
+
+                            <div class="ns_pagi_col2">
+                                <span class="current">
+                                    Page {{ main_news_all.number }} of {{ main_news_all.paginator.num_pages }}
+                                </span>
+                            </div>
+
+                            <div class="ns_pagi_col3">
+                              {% if main_news_all.has_next %}
+                                      <a href="?page_main_news_all={{ main_news_all.next_page_number }}">next</a>
+                                      <a href="?page_main_news_all={{ main_news_all.paginator.num_pages }}">Last &raquo;</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <!--end of Pagination-->
+
+        </div>
+    </div>
+
+    <hr>
+<!--Latest News-->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_collapsible">
+
+            <div class="ns_adbnews">
+                <div class="topic">Latest News</div>
+                <br><br>
+            </div>
+        </div>
+        <div class="all">
+
+            <div class="table">
+                <table id="customers2">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">News</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in latest_news_all%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>
+                            <a href="/admin_delete_news/Latest_news/{{items.date_uploaded | date:" Y-m-d"}}/{{items.id}}"
+                            class="btn remove">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+
+            <!--Pagination-->
+            <div class="container p-4">
+                <div class="justify-content-center">
+                    <span class="step-links">
+                        <div class="ns_pagi_row">
+                            <div class="ns_pagi_col1">
+                                {% if latest_news_all.has_previous %}
+                                  <a href="?page_latest_news_all=1">&laquo; First</a>
+                                  <a href="?page_latest_news_all={{ latest_news_all.previous_page_number }}">previous</a>
+                                {% endif %}
+                            </div>
+
+                            <div class="ns_pagi_col2">
+                                <span class="current">
+                                    Page {{ latest_news_all.number }} of {{ latest_news_all.paginator.num_pages }}
+                                </span>
+                            </div>
+
+                            <div class="ns_pagi_col3">
+                              {% if latest_news_all.has_next %}
+                                  <a href="?page_latest_news_all={{ latest_news_all.next_page_number }}">next</a>
+                                  <a href="?page_latest_news_all={{ latest_news_all.paginator.num_pages }}">Last &raquo;</a>
+                              {% endif %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <!--end of Pagination-->
+
+        </div>
+    </div>
+
+    <hr>
+<!--Youtube Videos-->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_collapsible">
+            <div class="topic">Youtube Videos</div>
+            <div class="ns_adbnews">
+                <a href="{% url 'admin_add_youtube' %}" class="ns_add_news_btn">ADD Youtube Videos</a><br><br>
+            </div>
+        </div>
+        <div class="all">
+
+            <div class="table">
+                <table id="customers3">
+                    <tr>
+                        <th class="ns_sn_column">SN</th>
+                        <th class="ns_news_column">title</th>
+                        <th class="ns_time_column">Time</th>
+                        <th class="ns_date_column">Date</th>
+
+                        <th class="ns_action_column">Action</th>
+                    </tr>
+                    {% for items in youtubelink_news_all%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{items.title}}</td>
+                        <td>{{items.time_uploaded}}</td>
+                        <td>{{items.date_uploaded | date:"Y-m-d"}}</td>
+                        <td>
+                            <a href="/admin_add_youtube_view/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}"
+                            class="btn edit">View</a>
+                            <a href="/admin_delete_news/youtube_link/{{items.date_uploaded | date:"Y-m-d"}}/{{items.id}}"
+                            class="btn remove">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <!--Pagination-->
+            <div class="container p-4">
+                <div class="justify-content-center">
+                    <span class="step-links">
+                        <div class="ns_pagi_row">
+                            <div class="ns_pagi_col1">
+                                {% if youtubelink_news_all.has_previous %}
+                                    <a href="?page_youtubelink_news_all=1">&laquo; First</a>
+                                    <a href="?page_youtubelink_news_all={{ youtubelink_news_all.previous_page_number }}">previous</a>
+                                {% endif %}
+                            </div>
+
+                            <div class="ns_pagi_col2">
+                                <span class="current">
+                                    Page {{ youtubelink_news_all.number }} of {{ youtubelink_news_all.paginator.num_pages }}
+                                </span>
+                            </div>
+
+                            <div class="ns_pagi_col3">
+                              {% if youtubelink_news_all.has_next %}
+                                  <a href="?page_youtubelink_news_all={{ youtubelink_news_all.next_page_number }}">next</a>
+                                  <a href="?page_youtubelink_news_all={{ youtubelink_news_all.paginator.num_pages }}">Last &raquo;</a>
+                              {% endif %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <!--end of Pagination-->
+
+        </div>
+    </div>
+
+    <hr>
+    {% endif %}
+
+    {% if current_user.profile.authorization == 'News' %}
+    {% else %}
+
+<!--    ads panel-->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_ph_extra">
+            <div class="topic">Ads Panel</div>
+            <div class="ns_adbnews">
+                <a href="{% url 'ads_page' %}" class="ns_add_news_btn">Views Ads</a><br><br>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    {% endif %}
+
+    {% if current_user.profile.authorization == 'Ads' %}
+    {% else %}
+
+<!--    Monthly Poll-->
+    <div class="ns_poll_container">
+        <div class="ns_poll_heading ns_ph_extra ns_collapsible">
+            <div class="topic">Monthly Poll Detail</div>
+        </div>
+        <div class="ns_poll_details_box" style="display: none;">
+
+            <div class="ns_pub_time"><span>Jestha</span></div>
+            <hr>
+
+            <div class="ns_polling_container">
+                <div class="ns_poll_row">
+                    <div class="ns_poll_column1">
+
+                        <div class="ns_poll_question">Q. What is your name? Why are you gay?</div>
+                        <div class="ns_polling_contianer">
+                            <div class="ns_poll_row">
+                                <div class="ns_poll_column1">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ns_poll_column2">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ns_poll_row">
+                                <div class="ns_poll_column1">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ns_poll_column2">
+                                    <div class="ns_option_row">
+                                        <div class="ns_option_col1">
+                                            <img src="{% static 'images/1.png' %}" class="ns_number_img">
+                                        </div>
+                                        <div class="ns_option_col2">
+                                            <span class="ns_poll_options">Yogi. I love it.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <button class="modal-button button" href="#myModal1" style="background-color: red;"
+                                id="myBtn">Delete
+                        </button>
+                    </div>
+                    <div class="ns_poll_column2">
+
+
+                        <canvas id="myChart1" style="width:100%;max-width:600px"></canvas>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <a href="{% url 'admin_smsPoll' %}" class="button" style="font-size: 20px; padding: 10px 25px;">View All</a>
+        </div>
+
+        <br><br>
+    </div>
+
+    <hr>
+    {% endif %}
+
+
+    <!-- The Modal -->
+    <div id="myModal1" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" style="text-align: center;">
+            <div class="modal-header">
+                <span class="close">×</span>
+                <h2>Are you sure want to delete?</h2>
+            </div>
+            <div class="modal-body">
+                <a href="" class="button" style="background-color: red;">Yes</a>
+                <a href="" class="button">No</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("ns_collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script src="{% static 'javascript/pieChart_data.js' %}"></script>
+<script src="{% static 'javascript/get_poll.js' %}"></script>
+
+{% include 'admin/bottom.html' %}

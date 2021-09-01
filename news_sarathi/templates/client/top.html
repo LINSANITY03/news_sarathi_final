@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'images/icon.png' %}"/>
+
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.min.css' %}">
+
+    <title>News Sarathi</title>
+</head>
+
+<body>
+<div class="container">
+    <!-- header start -->
+    <div class="topbar">
+        <a class="date">{{np_date}}</a>
+        <!-- <img class="ns_nav_icon" src="icon.png"> -->
+
+        <div class="temperature">
+<!--          <a href="//www.facebook.com"><i class="fab nonfab fa-facebook-f"></i></a>-->
+<!--          <a href="//www.twitter.com"><i class="fab nonfab fa-twitter" style="background: #0d6efd"></i></a>-->
+<!--          <a href="//www.youtube.com"><i class="fab nonfab fa-youtube" style="background: #0d6efd"></i></a>-->
+
+            <a href="{% url 'en_main_page' %}"><i class="far fa-eye"></i> &nbsp; English</a>
+        </div>
+
+
+    </div>
+
+    <div class="header">
+        <a href="">
+        <img class="img-logo" src="{% static 'images/logo1.png' %}" alt="LOGO">
+            </a>
+    </div>
+    <!-- header close -->
+
+    <!-- nav bar start -->
+    <div class="fixed">
+        <div class="topnav" id="myTopnav">
+
+            <div class="topnav_space">
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="{% url 'main_page' %}" class="active">हाेमपेज</a>
+
+                <div class="dropdown">
+                    <button class="dropbtn">समाचार
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/all_news/sandhiya">संघिय</a>
+                        <a href="/all_news/pradesh">प्रदेस</a>
+                        <a href="/all_news/esthaniya">स्थानीय</a>
+                        <a href="/all_news/manoranjan">मनाेरञ्जन</a>
+                        <a href="/all_news/khelud">खेलकुद</a>
+                    </div>
+                </div>
+
+                <a href="/all_news/bichar_lekh">विचार/लेख</a>
+                <a href="/all_news/antarbarta">अन्तरवार्ता</a>
+                <a href="/all_news/suchanapraviti">सूचना प्रविधि</a>
+                <a href="/all_news/antarastriya">अन्तर्राष्ट्रिय</a>
+                <a href="/all_news/sampadakiya">सम्पादकीय</a>
+
+                <a href="#">हाम्राे बारेमा</a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!--nav bar closed -->
+

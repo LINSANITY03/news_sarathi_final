@@ -1,0 +1,23 @@
+{% include 'admin/top.html' with current_user=current_user %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/add_news.css' %}">
+<script src="{% static 'javascript/script.js'%}"></script>
+<div class="text">Add Breaking News</div>
+
+<div class="addnews">
+    <form method="post" action="{% url 'admin_add_breaking_news_post' %}">
+        {% csrf_token %}
+    <div class="written">
+
+        <label for="title">TITLE</label>
+        <input type="text" id="title" name="title" value="" placeholder="Your Title..." required><br><br><br>
+    </div>
+    
+    <div class="pstbt">
+        <input type="submit" value="POST" class="ns_post">
+    </div>
+    </form>
+
+</div>
+
+{% include 'admin/bottom.html' %}
