@@ -28,6 +28,8 @@ class grihaprista(models.Model):
     date_uploaded = models.DateField(default=datetime.now)
     time_uploaded = models.TimeField(default=datetime.now)
     number_of_views = models.BigIntegerField(default=0)
+    news_id = models.BigIntegerField(default=0)
+    news_type = models.CharField(max_length=20, default='grihaprista')
 
 
 class Breaking_news(models.Model):
