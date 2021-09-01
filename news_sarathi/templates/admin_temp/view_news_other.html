@@ -4,42 +4,47 @@
 <link rel="stylesheet" href="{% static 'css/add_news.css' %}">
 
 {% if news_edit.news_type == "antarbarta" %}
-    <div class="text">News : अन्तरवार्ता</div>
+<div class="text">News : अन्तरवार्ता</div>
 {% elif news_edit.news_type == "bichar_lekh" %}
-    <div class="text">News : विचार/लेख</div>
+<div class="text">News : विचार/लेख</div>
 {% elif news_edit.news_type == "suchanapraviti" %}
-    <div class="text">News : सूचना प्रविधि</div>
+<div class="text">News : सूचना प्रविधि</div>
 {% elif news_edit.news_type == "antarastriya" %}
-    <div class="text">News : अन्तर्राष्ट्रिय</div>
+<div class="text">News : अन्तर्राष्ट्रिय</div>
 {% endif %}
 
 <div class="addnews">
     <div class="written">
-            <label for="title">Title</label>
+        <label for="title">Title</label>
         <input type="text" id="title" value="{{news_edit.title}}" placeholder="Your Title..." readonly><br><br><br>
         <label for="author">Author</label>
-        <input type="text" id="author" value="{{news_edit.editor_name}}" placeholder="Author Name..." readonly><br><br><br>
+        <input type="text" id="author" value="{{news_edit.editor_name}}" placeholder="Author Name..."
+               readonly><br><br><br>
         <label for="time">Time</label>
         <input type="text" id="time" value="{{news_edit.time_uploaded}}" placeholder="Time" readonly><br><br><br>
         <label for="date">Date</label>
-        <input type="text" id="date" value="{{news_edit.date_uploaded | date:"Y-m-d"}}" placeholder="Date" readonly><br><br><br>
+        <input type="text" id="date" value="{{news_edit.date_uploaded | date:" Y-m-d"}}" placeholder="Date"
+        readonly><br><br><br>
         <label for="location">Location</label>
         <input type="text" id="location" value="{{news_edit.location}}" placeholder="Date" readonly><br><br><br>
+        <label for="schedule">Schedule</label>
+        <input type="text" id="schedule" value="{{news_edit.date_time_picker}}" placeholder="Date" readonly><br><br><br>
 
 
-            <label for="output">IMAGE:</label><br><br>
-            <div class="profile-pic">
-               <img src="{{news_edit.photo_img.url}}" id="output" width="100px" height="100px" /><br><br>
-           </div>
-            <label for="textarea">NEWS SUMMARY</label>
-             <input id="textarea" value="{{news_edit.news_summary}}" placeholder="Write Something..." readonly>
-            <br>
-            <label for="textarea1">DESCRIPTION</label><br><br>
-            {{news_edit.description | safe}}>
+        <label for="output">IMAGE:</label><br><br>
+        <div class="profile-pic">
+            <img src="{{news_edit.photo_img.url}}" id="output" width="100px" height="100px"/><br><br>
+        </div>
+        <label for="textarea">NEWS SUMMARY</label>
+        <input id="textarea" value="{{news_edit.news_summary}}" placeholder="Write Something..." readonly>
+        <br>
+        <label for="textarea1">DESCRIPTION</label><br><br>
+        {{news_edit.description | safe}}
     </div>
 
     <div class="pstbt">
-        <a href="/admin_edit/{{news_edit.news_type}}/{{news_edit.date_uploaded | date:"Y-m-d" }}/{{news_edit.id}}" class="ns_post_edit">Edit</a>
+        <a href="/admin_edit/{{news_edit.news_type}}/{{news_edit.date_uploaded | date:"Y-m-d" }}/{{news_edit.id}}"
+        class="ns_post_edit">Edit</a>
 
     </div>
 

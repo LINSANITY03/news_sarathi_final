@@ -468,7 +468,6 @@ def per_page(request, news_types, dates, news_id):
 def admin_home(request):
     current_user = request.user
 
-
     breaking_news_all = Breaking_news.objects.all().order_by('-id')
     paginator_breaking_news = Paginator(breaking_news_all, 10)
     page_number_breaking_news = request.GET.get('page_breaking_news_all')
@@ -559,7 +558,6 @@ def admin_add_user_post(request):
 
 @login_required(login_url='/admin_login/')
 def admin_edit_user(request, authorization, admin_id):
-
     current_user = request.user
 
     user_details = Profile.objects.get(user_id=admin_id, authorization=authorization)
@@ -569,7 +567,6 @@ def admin_edit_user(request, authorization, admin_id):
 
 @login_required(login_url='/admin_login/')
 def admin_edit_user_post(request, authorization, admin_id):
-
     email_exists = False
 
     if request.method == 'POST':
@@ -627,7 +624,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
 
         grihaprista_news = grihaprista(title=sandhiya_news.title, editor_name=sandhiya_news.editor_name,
                                        location=sandhiya_news.location, photo_img=sandhiya_news.photo_img,
-                                       news_summary=sandhiya_news.news_summary, description=sandhiya_news.description)
+                                       news_summary=sandhiya_news.news_summary, description=sandhiya_news.description,
+                                       news_type='sandhiya', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -636,7 +634,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
 
         grihaprista_news = grihaprista(title=pradesh_news.title, editor_name=pradesh_news.editor_name,
                                        location=pradesh_news.location, photo_img=pradesh_news.photo_img,
-                                       news_summary=pradesh_news.news_summary, description=pradesh_news.description)
+                                       news_summary=pradesh_news.news_summary, description=pradesh_news.description,
+                                       news_type='pradesh', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -645,7 +644,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
 
         grihaprista_news = grihaprista(title=esthaniya_news.title, editor_name=esthaniya_news.editor_name,
                                        location=esthaniya_news.location, photo_img=esthaniya_news.photo_img,
-                                       news_summary=esthaniya_news.news_summary, description=esthaniya_news.description)
+                                       news_summary=esthaniya_news.news_summary, description=esthaniya_news.description,
+                                       news_type='esthaniya', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -655,7 +655,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
         grihaprista_news = grihaprista(title=manoranjan_news.title, editor_name=manoranjan_news.editor_name,
                                        location=manoranjan_news.location, photo_img=manoranjan_news.photo_img,
                                        news_summary=manoranjan_news.news_summary,
-                                       description=manoranjan_news.description)
+                                       description=manoranjan_news.description,
+                                       news_type='manoranjan', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -664,7 +665,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
 
         grihaprista_news = grihaprista(title=pradesh_news.title, editor_name=pradesh_news.editor_name,
                                        location=pradesh_news.location, photo_img=pradesh_news.photo_img,
-                                       news_summary=pradesh_news.news_summary, description=pradesh_news.description)
+                                       news_summary=pradesh_news.news_summary, description=pradesh_news.description,
+                                       news_type='pradesh', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -673,7 +675,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
 
         grihaprista_news = grihaprista(title=khelud_news.title, editor_name=khelud_news.editor_name,
                                        location=khelud_news.location, photo_img=khelud_news.photo_img,
-                                       news_summary=khelud_news.news_summary, description=khelud_news.description)
+                                       news_summary=khelud_news.news_summary, description=khelud_news.description,
+                                       news_type='khelud', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -683,7 +686,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
         grihaprista_news = grihaprista(title=antarbarta_news.title, editor_name=antarbarta_news.editor_name,
                                        location=antarbarta_news.location, photo_img=antarbarta_news.photo_img,
                                        news_summary=antarbarta_news.news_summary,
-                                       description=antarbarta_news.description)
+                                       description=antarbarta_news.description,
+                                       news_type='antarbarta', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -693,7 +697,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
         grihaprista_news = grihaprista(title=sampadakiya_news.title, editor_name=sampadakiya_news.editor_name,
                                        location=sampadakiya_news.location, photo_img=sampadakiya_news.photo_img,
                                        news_summary=sampadakiya_news.news_summary,
-                                       description=sampadakiya_news.description)
+                                       description=sampadakiya_news.description,
+                                       news_type='sampadakiya', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -703,7 +708,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
         grihaprista_news = grihaprista(title=bichar_lekh_news.title, editor_name=bichar_lekh_news.editor_name,
                                        location=bichar_lekh_news.location, photo_img=bichar_lekh_news.photo_img,
                                        news_summary=bichar_lekh_news.news_summary,
-                                       description=bichar_lekh_news.description)
+                                       description=bichar_lekh_news.description,
+                                       news_type='bichar_lekh', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -713,7 +719,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
         grihaprista_news = grihaprista(title=suchanapraviti_news.title, editor_name=suchanapraviti_news.editor_name,
                                        location=suchanapraviti_news.location, photo_img=suchanapraviti_news.photo_img,
                                        news_summary=suchanapraviti_news.news_summary,
-                                       description=suchanapraviti_news.description)
+                                       description=suchanapraviti_news.description,
+                                       news_type='suchanapraviti', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -723,7 +730,8 @@ def admin_add_grihaprista(request, news_types, dates, news_id):
         grihaprista_news = grihaprista(title=antarastriya_news.title, editor_name=antarastriya_news.editor_name,
                                        location=antarastriya_news.location, photo_img=antarastriya_news.photo_img,
                                        news_summary=antarastriya_news.news_summary,
-                                       description=antarastriya_news.description)
+                                       description=antarastriya_news.description,
+                                       news_type='antarastriya', news_id=news_id)
         grihaprista_news.save()
         return redirect('/admin_home/')
 
@@ -826,7 +834,6 @@ def admin_pollquestion(request):
 
 @login_required(login_url='/admin_login/')
 def ads_page(request):
-
     current_user = request.user
 
     # 001
@@ -948,7 +955,6 @@ def add_ads_page_post(request, ads_id):
 
 @login_required(login_url='/admin_login/')
 def edit_ads_page(request, ads_id):
-
     current_user = request.user
 
     ads_query = ads_table.objects.filter(ads_num=ads_id).last()
@@ -1025,14 +1031,13 @@ def admin_nationaNews(request):
         page_obj_khelud = paginator_khelud.page(paginator_khelud.num_pages)
 
     context = {'sandhiya_news': page_obj_sandhiya_news, 'pradesh_news': page_obj_pradesh,
-               'esthaniya_news': page_obj_esthaniya,'current_user': current_user,
+               'esthaniya_news': page_obj_esthaniya, 'current_user': current_user,
                'manoranjan_news': page_obj_manoranjan, 'khelud_news': page_obj_khelud}
     return render(request, "admin_temp/nationaNews.html", context)
 
 
 @login_required(login_url='/admin_login/')
 def admin_add_national_news(request):
-
     current_user = request.user
 
     form = National_form()
@@ -1056,74 +1061,72 @@ def admin_add_national_news_post(request):
             radio_button = form.cleaned_data.get("radio_button")
 
             if radio_button == 'सांघिय':
-                news_add = sandhiya.objects.create(title=title, editor_name=author, photo_img=image, location=location,
-                                                   description=content, news_summary=news_summary,
-                                                   date_time_picker=scheduler)
-
-                news_add.save()
-
                 latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                          description=content, news_summary=news_summary,
-                                         date_time_picker=scheduler)
+                                         date_time_picker=scheduler, news_type='sandhiya')
                 latest_add.save()
+
+                sandhiya.objects.create(title=title, editor_name=author, photo_img=image, location=location,
+                                        description=content, news_summary=news_summary,
+                                        date_time_picker=scheduler, Latest_news=latest_add)
 
                 messages.success(request, 'news added!')
                 return redirect('/admin_nationaNews/')
 
             if radio_button == 'पादेश':
-                news_add = pradesh.objects.create(title=title, editor_name=author, photo_img=image, location=location,
-                                                  description=content, news_summary=news_summary,
-                                                  date_time_picker=scheduler)
-                news_add.save()
-
                 latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                          description=content, news_summary=news_summary,
-                                         date_time_picker=scheduler)
+                                         date_time_picker=scheduler, news_type='pradesh')
                 latest_add.save()
+
+                news_add = pradesh.objects.create(title=title, editor_name=author, photo_img=image, location=location,
+                                                  description=content, news_summary=news_summary,
+                                                  date_time_picker=scheduler, Latest_news=latest_add)
+                news_add.save()
 
                 messages.success(request, 'news added!')
                 return redirect('/admin_nationaNews/')
 
             if radio_button == 'स्थानिय':
-                news_add = esthaniya.objects.create(title=title, editor_name=author, photo_img=image, location=location,
-                                                    description=content, news_summary=news_summary,
-                                                    date_time_picker=scheduler)
-                news_add.save()
-
                 latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                          description=content, news_summary=news_summary,
-                                         date_time_picker=scheduler)
+                                         date_time_picker=scheduler, news_type='esthaniya')
                 latest_add.save()
+
+                news_add = esthaniya.objects.create(title=title, editor_name=author, photo_img=image, location=location,
+                                                    description=content, news_summary=news_summary,
+                                                    date_time_picker=scheduler, Latest_news=latest_add)
+                news_add.save()
 
                 messages.success(request, 'news added!')
                 return redirect('/admin_nationaNews/')
 
             if radio_button == 'मनोरंजन':
+                latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
+                                         description=content, news_summary=news_summary,
+                                         date_time_picker=scheduler, news_type='manoranjan')
+                latest_add.save()
+
                 news_add = manoranjan.objects.create(title=title, editor_name=author, photo_img=image,
                                                      location=location,
                                                      description=content, news_summary=news_summary,
-                                                     date_time_picker=scheduler)
+                                                     date_time_picker=scheduler, Latest_news=latest_add)
                 news_add.save()
-
-                latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
-                                         description=content, news_summary=news_summary,
-                                         date_time_picker=scheduler)
-                latest_add.save()
 
                 messages.success(request, 'news added!')
                 return redirect('/admin_nationaNews/')
 
             if radio_button == 'खेलकुद':
+                latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
+                                         description=content, news_summary=news_summary,
+                                         date_time_picker=scheduler, news_type='khelud')
+                latest_add.save()
+
                 news_add = khelud.objects.create(title=title, editor_name=author, photo_img=image,
                                                  location=location,
                                                  description=content, news_summary=news_summary,
-                                                 date_time_picker=scheduler)
+                                                 date_time_picker=scheduler, Latest_news=latest_add)
                 news_add.save()
-
-                latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
-                                         description=content, news_summary=news_summary,
-                                         date_time_picker=scheduler)
-                latest_add.save()
 
                 messages.success(request, 'news added!')
                 return redirect('/admin_nationaNews/')
@@ -1161,7 +1164,6 @@ def admin_national_news_view(request, news_types, dates, news_id):
 
 @login_required(login_url='/admin_login/')
 def admin_national_news_edit(request, news_types, dates, news_id):
-
     current_user = request.user
 
     if news_types == 'sandhiya':
@@ -1199,7 +1201,6 @@ def admin_national_news_edit(request, news_types, dates, news_id):
 
 @login_required(login_url='/admin_login/')
 def admin_national_news_post(request, news_types, dates, news_id):
-
     form = National_edit_form(request.POST, request.FILES)
 
     if form.is_valid():
@@ -1209,6 +1210,7 @@ def admin_national_news_post(request, news_types, dates, news_id):
         image = form.cleaned_data.get("photo_img")
         news_summary = form.cleaned_data.get("news_summary")
         content = form.cleaned_data.get("description")
+        date_time_picker = form.cleaned_data.get("date_time_picker")
 
         if news_types == 'sandhiya':
             sandhiya_news = sandhiya.objects.get(id=news_id)
@@ -1222,7 +1224,18 @@ def admin_national_news_post(request, news_types, dates, news_id):
             sandhiya_news.location = location
             sandhiya_news.news_summary = news_summary
             sandhiya_news.description = content
+            sandhiya_news.date_time_picker = date_time_picker
             sandhiya_news.save()
+
+            latest_news = Latest_news.objects.get(id=sandhiya_news.Latest_news_id)
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_nationaNews/')
@@ -1239,7 +1252,18 @@ def admin_national_news_post(request, news_types, dates, news_id):
             pradesh_news.location = location
             pradesh_news.news_summary = news_summary
             pradesh_news.description = content
+            pradesh_news.date_time_picker = date_time_picker
             pradesh_news.save()
+
+            latest_news = Latest_news.objects.get(id=pradesh_news.Latest_news_id)
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_nationaNews/')
@@ -1256,7 +1280,18 @@ def admin_national_news_post(request, news_types, dates, news_id):
             esthaniya_news.location = location
             esthaniya_news.news_summary = news_summary
             esthaniya_news.description = content
+            esthaniya_news.date_time_picker = date_time_picker
             esthaniya_news.save()
+
+            latest_news = Latest_news.objects.get(id=esthaniya_news.Latest_news_id)
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_nationaNews/')
@@ -1273,7 +1308,18 @@ def admin_national_news_post(request, news_types, dates, news_id):
             manoranjan_news.location = location
             manoranjan_news.news_summary = news_summary
             manoranjan_news.description = content
+            manoranjan_news.date_time_picker = date_time_picker
             manoranjan_news.save()
+
+            latest_news = Latest_news.objects.get(id=manoranjan_news.Latest_news_id)
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_nationaNews/')
@@ -1290,7 +1336,20 @@ def admin_national_news_post(request, news_types, dates, news_id):
             khelud_news.location = location
             khelud_news.news_summary = news_summary
             khelud_news.description = content
+            khelud_news.date_time_picker = date_time_picker
             khelud_news.save()
+
+            required_id = khelud.objects.get(id=news_id)
+            latest_news = Latest_news.objects.get(id=required_id.Latest_news_id)
+
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_nationaNews/')
@@ -1298,7 +1357,6 @@ def admin_national_news_post(request, news_types, dates, news_id):
 
 @login_required(login_url='/admin_login/')
 def admin_Interview(request):
-
     current_user = request.user
 
     antarbarta_news = antarbarta.objects.all().order_by('-id')
@@ -1316,7 +1374,6 @@ def admin_Interview(request):
 
 @login_required(login_url='/admin_login/')
 def admin_add_Interview(request, news_types):
-
     current_user = request.user
 
     form = add_news()
@@ -1335,73 +1392,70 @@ def admin_add_Interview_post(request, news_types):
         image = form.cleaned_data.get("img")
         news_summary = form.cleaned_data.get("news_summary")
         content = form.cleaned_data.get("content")
-        scheduler = form.cleaned_data.get("scheduler")
+        scheduler = form.cleaned_data.get("date_time_picker")
 
         if news_types == 'antarbarta':
-            news_add = antarbarta(title=title, editor_name=author, photo_img=image, location=location,
-                                  news_summary=news_summary, description=content,
-                                  date_time_picker=scheduler)
-            news_add.save()
-
             latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                      description=content, news_summary=news_summary,
-                                     date_time_picker=scheduler)
+                                     date_time_picker=scheduler, news_type='antarbarta')
             latest_add.save()
+
+            antarbarta.objects.create(title=title, editor_name=author, photo_img=image, location=location,
+                                      news_summary=news_summary, description=content,
+                                      date_time_picker=scheduler, Latest_news=latest_add)
 
             messages.success(request, 'News added!')
             return redirect('/admin_Interview/')
 
         if news_types == 'bichar_lekh':
-            news_add = bichar_lekh(title=title, editor_name=author, photo_img=image, location=location,
-                                   news_summary=news_summary, description=content, date_time_picker=scheduler)
-            news_add.save()
-
             latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                      description=content, news_summary=news_summary,
-                                     date_time_picker=scheduler)
+                                     date_time_picker=scheduler, news_type='bichar_lekh')
             latest_add.save()
+
+            bichar_lekh.objects.create(title=title, editor_name=author, photo_img=image, location=location,
+                                       news_summary=news_summary, description=content,
+                                       date_time_picker=scheduler, Latest_news=latest_add)
 
             messages.success(request, 'News added!')
             return redirect('/admin_Thoughts/')
 
         if news_types == 'suchanapraviti':
-            news_add = suchanapraviti(title=title, editor_name=author, photo_img=image, location=location,
-                                      news_summary=news_summary, description=content,
-                                      date_time_picker=scheduler)
-            news_add.save()
-
             latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                      description=content, news_summary=news_summary,
-                                     date_time_picker=scheduler)
+                                     date_time_picker=scheduler, news_type='suchanapraviti')
             latest_add.save()
+
+            suchanapraviti.objects.create(title=title, editor_name=author, photo_img=image,
+                                          location=location,
+                                          news_summary=news_summary, description=content,
+                                          date_time_picker=scheduler, Latest_news=latest_add)
 
             messages.success(request, 'News added!')
             return redirect('/admin_it_news/')
 
         if news_types == 'antarastriya':
-            news_add = antarastriya(title=title, editor_name=author, photo_img=image, location=location,
-                                    news_summary=news_summary, description=content,
-                                    date_time_picker=scheduler)
-            news_add.save()
-
             latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                      description=content, news_summary=news_summary,
-                                     date_time_picker=scheduler)
+                                     date_time_picker=scheduler, news_type='antarastriya')
             latest_add.save()
+
+            antarastriya.objects.create(title=title, editor_name=author, photo_img=image, location=location,
+                                        news_summary=news_summary, description=content,
+                                        date_time_picker=scheduler, Latest_news=latest_add)
 
             messages.success(request, 'News added!')
             return redirect('/admin_InternationalNews/')
 
         if news_types == 'sampadakiya':
-            news_add = sampadakiya(title=title, editor_name=author, photo_img=image, location=location,
-                                   news_summary=news_summary, description=content,
-                                   date_time_picker=scheduler)
-            news_add.save()
-
             latest_add = Latest_news(title=title, editor_name=author, photo_img=image, location=location,
                                      description=content, news_summary=news_summary,
-                                     date_time_picker=scheduler)
+                                     date_time_picker=scheduler, news_type='sampadakiya')
             latest_add.save()
+
+            sampadakiya.objects.create(title=title, editor_name=author, photo_img=image, location=location,
+                                       news_summary=news_summary, description=content,
+                                       date_time_picker=scheduler, Latest_news=latest_add)
 
             messages.success(request, 'News added!')
             return redirect('/admin_Editorial/')
@@ -1409,7 +1463,6 @@ def admin_add_Interview_post(request, news_types):
 
 @login_required(login_url='/admin_login/')
 def admin_Interview_view(request, news_types, dates, news_id):
-
     current_user = request.user
 
     if news_types == 'antarbarta':
@@ -1440,7 +1493,6 @@ def admin_Interview_view(request, news_types, dates, news_id):
 
 @login_required(login_url='/admin_login/')
 def admin_Interview_edit(request, news_types, dates, news_id):
-
     current_user = request.user
 
     if news_types == 'antarbarta':
@@ -1476,7 +1528,7 @@ def admin_Interview_edit(request, news_types, dates, news_id):
 
 @login_required(login_url='/admin_login/')
 def admin_Interview_post(request, news_types, dates, news_id):
-    form = add_news(request.POST, request.FILES)
+    form = add_news_edit(request.POST, request.FILES)
 
     if form.is_valid():
         title = form.cleaned_data.get("title")
@@ -1485,6 +1537,7 @@ def admin_Interview_post(request, news_types, dates, news_id):
         image = form.cleaned_data.get("photo_img")
         news_summary = form.cleaned_data.get("news_summary")
         content = form.cleaned_data.get("description")
+        date_time_picker = form.cleaned_data.get("date_time_picker")
 
         if news_types == 'antarbarta':
             antarbarta_news = antarbarta.objects.get(id=news_id, date_uploaded=dates)
@@ -1498,7 +1551,20 @@ def admin_Interview_post(request, news_types, dates, news_id):
             antarbarta_news.location = location
             antarbarta_news.news_summary = news_summary
             antarbarta_news.description = content
+            antarbarta_news.date_time_picker = date_time_picker
             antarbarta_news.save()
+
+            required_id = antarbarta.objects.get(id=news_id)
+            latest_news = Latest_news.objects.get(id=required_id.Latest_news_id)
+
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_Interview/')
@@ -1515,7 +1581,20 @@ def admin_Interview_post(request, news_types, dates, news_id):
             bichar_lekh_news.location = location
             bichar_lekh_news.news_summary = news_summary
             bichar_lekh_news.description = content
+            bichar_lekh_news.date_time_picker = date_time_picker
             bichar_lekh_news.save()
+
+            required_id = bichar_lekh.objects.get(id=news_id)
+            latest_news = Latest_news.objects.get(id=required_id.Latest_news_id)
+
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_Thoughts/')
@@ -1531,7 +1610,21 @@ def admin_Interview_post(request, news_types, dates, news_id):
             antarastriya_news.photo_img = image
             antarastriya_news.location = location
             antarastriya_news.news_summary = news_summary
+            antarastriya_news.description = content
+            antarastriya_news.date_time_picker = date_time_picker
             antarastriya_news.save()
+
+            required_id = antarastriya.objects.get(id=news_id)
+            latest_news = Latest_news.objects.get(id=required_id.Latest_news_id)
+
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_InternationalNews/')
@@ -1547,7 +1640,21 @@ def admin_Interview_post(request, news_types, dates, news_id):
             sampadakiya_news.photo_img = image
             sampadakiya_news.location = location
             sampadakiya_news.news_summary = news_summary
+            sampadakiya_news.description = content
+            sampadakiya_news.date_time_picker = date_time_picker
             sampadakiya_news.save()
+
+            required_id = sampadakiya_news.objects.get(id=news_id)
+            latest_news = Latest_news.objects.get(id=required_id.Latest_news_id)
+
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_Editorial/')
@@ -1563,7 +1670,21 @@ def admin_Interview_post(request, news_types, dates, news_id):
             suchanapraviti_news.photo_img = image
             suchanapraviti_news.location = location
             suchanapraviti_news.news_summary = news_summary
+            suchanapraviti_news.description = content
+            suchanapraviti_news.date_time_picker = date_time_picker
             suchanapraviti_news.save()
+
+            required_id = suchanapraviti.objects.get(id=news_id)
+            latest_news = Latest_news.objects.get(id=required_id.Latest_news_id)
+
+            latest_news.title = title
+            latest_news.editor_name = author
+            latest_news.photo_img = image
+            latest_news.location = location
+            latest_news.news_summary = news_summary
+            latest_news.description = content
+            latest_news.date_time_picker = date_time_picker
+            latest_news.save()
 
             messages.success(request, 'news updated!')
             return redirect('/admin_Editorial/')
@@ -1571,7 +1692,6 @@ def admin_Interview_post(request, news_types, dates, news_id):
 
 @login_required(login_url='/admin_login/')
 def admin_Thoughts(request):
-
     current_user = request.user
 
     bichar_lekh_news = bichar_lekh.objects.all().order_by('-id')
@@ -1589,7 +1709,6 @@ def admin_Thoughts(request):
 
 @login_required(login_url='/admin_login/')
 def admin_it_news(request):
-
     current_user = request.user
 
     suchanapraviti_news = suchanapraviti.objects.all().order_by('-id')
@@ -1608,7 +1727,6 @@ def admin_it_news(request):
 
 @login_required(login_url='/admin_login/')
 def admin_InternationalNews(request):
-
     current_user = request.user
 
     antarastriya_news = antarastriya.objects.all().order_by('-id')
@@ -1627,7 +1745,6 @@ def admin_InternationalNews(request):
 
 @login_required(login_url='/admin_login/')
 def admin_Editorial(request):
-
     current_user = request.user
 
     sampadakiya_news = sampadakiya.objects.all().order_by('-id')
@@ -1646,7 +1763,6 @@ def admin_Editorial(request):
 
 @login_required(login_url='/admin_login/')
 def admin_AboutUs(request):
-
     current_user = request.user
 
     about_us_1 = about_us.objects.all().first()
@@ -1656,7 +1772,6 @@ def admin_AboutUs(request):
 
 @login_required(login_url='/admin_login/')
 def admin_AboutUs_edit(request):
-
     current_user = request.user
 
     form = about_us_post()
@@ -1676,7 +1791,6 @@ def admin_AboutUs_post(request):
 
 @login_required(login_url='/admin_login/')
 def admin_setting(request):
-
     admin_all = request.user
 
     current_user = request.user
@@ -1687,7 +1801,6 @@ def admin_setting(request):
 
 @login_required(login_url='/admin_login/')
 def admin_profile(request):
-
     current_user = request.user
     context = {'current_user': current_user}
     return render(request, "admin_temp/edit_profile.html", context)
@@ -1695,7 +1808,6 @@ def admin_profile(request):
 
 @login_required(login_url='/admin_login/')
 def admin_profile_post(request, authorization, admin_id):
-
     if request.method == "POST":
         fullname = request.POST.get("fullname")
         email = request.POST.get("email")
@@ -1729,7 +1841,6 @@ def admin_profile_post(request, authorization, admin_id):
 
 @login_required(login_url='/admin_login/')
 def ns_setting_1(request):
-
     admin_all = request.user
     context = {'admin_all': admin_all}
     return render(request, "admin_temp/ns_setting_section/1.html", context)
@@ -1737,7 +1848,6 @@ def ns_setting_1(request):
 
 @login_required(login_url='/admin_login/')
 def admin_change_password_post(request, authorization, admin_id):
-
     current_pass = request.POST.get("password")
     new_pass_1 = request.POST.get("passOne")
     new_pass_2 = request.POST.get("passTwo")
@@ -1773,7 +1883,6 @@ def ns_setting_2(request):
 
 @login_required(login_url='/admin_login/')
 def ns_setting_3(request):
-
     admin_all = request.user
 
     context = {'admin_all': admin_all}
@@ -1798,33 +1907,72 @@ def admin_delete_news(request, news_types, dates, news_id):
         return redirect('/admin_home/')
 
     if news_types == "sandhiya":
+
+        required_id = sandhiya.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         sandhiya_news = sandhiya.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = sandhiya_news.photo_img
         image_del.delete()
 
         sandhiya_news.delete()
+
         return redirect('/admin_nationaNews/')
 
     if news_types == "pradesh":
+
+        required_id = pradesh.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         pradesh_news = pradesh.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = pradesh_news.photo_img
         image_del.delete()
 
         pradesh_news.delete()
+
         return redirect('/admin_nationaNews/')
 
     if news_types == "esthaniya":
+
+        required_id = esthaniya.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         esthaniya_news = esthaniya.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = esthaniya_news.photo_img
         image_del.delete()
 
         esthaniya_news.delete()
+
         return redirect('/admin_nationaNews/')
 
     if news_types == "manoranjan":
+
+        required_id = manoranjan.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         manoranjan_news = manoranjan.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = manoranjan_news.photo_img
@@ -1834,6 +1982,15 @@ def admin_delete_news(request, news_types, dates, news_id):
         return redirect('/admin_nationaNews/')
 
     if news_types == "khelud":
+
+        required_id = khelud.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         khelud_news = khelud.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = khelud_news.photo_img
@@ -1843,6 +2000,15 @@ def admin_delete_news(request, news_types, dates, news_id):
         return redirect('/admin_nationaNews/')
 
     if news_types == "antarbarta":
+
+        required_id = antarbarta.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         antarbarta_news = antarbarta.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = antarbarta_news.photo_img
@@ -1852,15 +2018,34 @@ def admin_delete_news(request, news_types, dates, news_id):
         return redirect('/admin_Interview/')
 
     if news_types == "bichar_lekh":
+
+        required_id = bichar_lekh.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         bichar_lekh_news = bichar_lekh.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = bichar_lekh_news.photo_img
         image_del.delete()
 
         bichar_lekh_news.delete()
+
         return redirect('/admin_Thoughts/')
 
     if news_types == "suchanapraviti":
+
+        required_id = suchanapraviti.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         suchanapraviti_news = suchanapraviti.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = suchanapraviti_news.photo_img
@@ -1870,28 +2055,44 @@ def admin_delete_news(request, news_types, dates, news_id):
         return redirect('/admin_it_news/')
 
     if news_types == "antarastriya":
+
+        required_id = antarastriya.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         antarastriya_news = antarastriya.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = antarastriya_news.photo_img
         image_del.delete()
 
         antarastriya_news.delete()
+
         return redirect('/admin_InternationalNews/')
 
     if news_types == "sampadakiya":
+
+        required_id = sampadakiya.objects.get(id=news_id, date_uploaded=dates)
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=required_id.Latest_news_id)
+        latest_news_del.delete()
+
+        main_news_del = grihaprista.objects.filter(date_uploaded=dates, news_id=news_id)
+        if main_news_del:
+            main_news_del.delete()
+
         sampadakiya_news = sampadakiya.objects.get(id=news_id, date_uploaded=dates)
 
         image_del = sampadakiya_news.photo_img
         image_del.delete()
 
         sampadakiya_news.delete()
+
+        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=news_id)
+        latest_news_del.delete()
         return redirect('/admin_Editorial/')
-
-    if news_types == "grihaprista":
-        grihaprista_news = grihaprista.objects.get(id=news_id, date_uploaded=dates)
-
-        grihaprista_news.delete()
-        return redirect('/admin_home/')
 
     if news_types == "youtube_link":
         youtubelink_news = youtubelink.objects.get(id=news_id, date_uploaded=dates)
@@ -1922,8 +2123,3 @@ def admin_login_post(request):
         else:
             messages.warning(request, 'Wrong credentials!')
             return redirect('/admin_login/')
-
-
-
-
-

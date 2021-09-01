@@ -4,7 +4,7 @@
 <script src="{% static 'javascript/script.js'%}"></script>
 <link rel="stylesheet" href="{% static 'css/add_news.css' %}">
 <script src="{% static 'javascript/edituser.js' %}"></script>
-<div class="text">Add News</div>
+<div class="text">Add News: {{news_types}}</div>
 
 <div class="addnews">
     <div class="written">
@@ -44,7 +44,7 @@
 
             <br><br>
             <label>SCHEDULE</label><br><br>
-            {{form.scheduler}}
+            {{form.date_time_picker}}
 
             <div class="pstbt">
             <button class="ns_post">POST</button>

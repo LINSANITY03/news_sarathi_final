@@ -37,8 +37,13 @@
             <label for="date">Date</label>
             <input type="text" id="date" name="date" value="{{news_edit.date_uploaded| date:'Y-m-d'}}"
                    placeholder="Date" readonly><br><br><br>
+
             <label>LOCATION</label>
             {% render_field form.location %}
+            <br><br><br>
+
+            <label>Schedule</label>
+            {% render_field form.date_time_picker %}
 
             <br><br><br>
 

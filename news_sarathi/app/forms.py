@@ -46,7 +46,7 @@ class National_form(forms.ModelForm):
 class National_edit_form(forms.ModelForm):
     class Meta:
         model = sandhiya
-        fields = ('title', 'editor_name', 'location', 'photo_img', 'news_summary', 'description',)
+        fields = ('title', 'editor_name', 'location', 'photo_img', 'news_summary', 'description', 'date_time_picker')
 
 
 class add_news(forms.ModelForm):
@@ -68,4 +68,4 @@ class add_news(forms.ModelForm):
 class add_news_edit(forms.ModelForm):
     class Meta:
         model = antarbarta
-        fields = ('title', 'editor_name', 'location', 'photo_img', 'news_summary', 'description',)
+        fields = ('title', 'editor_name', 'location', 'photo_img', 'news_summary', 'description', 'date_time_picker')
