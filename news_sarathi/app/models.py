@@ -30,6 +30,7 @@ class grihaprista(models.Model):
     description = RichTextField(default='enter news')
     date_uploaded = models.DateField(default=datetime.now)
     time_uploaded = models.TimeField(default=datetime.now)
+    date_time_picker = models.DateTimeField(default=datetime.now)
     number_of_views = models.BigIntegerField(default=0)
     news_id = models.BigIntegerField(default=0)
     news_type = models.CharField(max_length=20, default='grihaprista')
@@ -64,7 +65,6 @@ class Latest_news(models.Model):
     time_uploaded = models.TimeField(default=datetime.now)
     date_time_picker = models.DateTimeField(default=datetime.now)
     number_of_views = models.BigIntegerField(default=0)
-    news_id = models.BigIntegerField(default=0)
     news_type = models.CharField(max_length=20, default='latest')
 
     def __str__(self):
@@ -86,6 +86,8 @@ class sandhiya(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='sandhiya')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_sandhiya", null=True)
 
     def __str__(self):
         return self.title
@@ -106,6 +108,8 @@ class pradesh(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='pradesh')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_pradesh", null=True)
 
     def __str__(self):
         return self.title
@@ -126,6 +130,8 @@ class esthaniya(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='esthaniya')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_esthaniya", null=True)
 
     def __str__(self):
         return self.title
@@ -146,6 +152,8 @@ class manoranjan(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='manoranjan')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_manoranjan", null=True)
 
     def __str__(self):
         return self.title
@@ -166,6 +174,8 @@ class khelud(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='khelud')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_khelud", null=True)
 
     def __str__(self):
         return self.title
@@ -186,6 +196,8 @@ class antarbarta(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='antarbarta')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_antarbarta", null=True)
 
     def __str__(self):
         return self.title
@@ -206,6 +218,8 @@ class bichar_lekh(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='bichar_lekh')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_bichar_lekh", null=True)
 
     def __str__(self):
         return self.title
@@ -226,6 +240,8 @@ class suchanapraviti(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='suchanapraviti')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_suchanapraviti", null=True)
 
     def __str__(self):
         return self.title
@@ -246,6 +262,8 @@ class antarastriya(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='antarastriya')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_antarastriya", null=True)
 
     def __str__(self):
         return self.title
@@ -266,6 +284,8 @@ class sampadakiya(models.Model):
     date_time_picker = models.DateTimeField(default=datetime.now)
     news_type = models.CharField(max_length=20, default='sampadakiya')
     number_of_views = models.BigIntegerField(default=0)
+    Latest_news = models.OneToOneField(Latest_news, on_delete=models.CASCADE,
+                                       related_name="Latest_news_sampadakiya", null=True)
 
     def __str__(self):
         return self.title
@@ -320,5 +340,3 @@ class ads_table(models.Model):
 
     def __str__(self):
         return self.ads_num
-
-

@@ -579,7 +579,6 @@ def admin_edit_user_post(request, authorization, admin_id):
         contact = request.POST['contact']
         permission = request.POST['permission']
 
-
         admin_all = User.objects.all().exclude(id=admin_id)
 
         for items in admin_all:
@@ -1920,12 +1919,11 @@ def admin_login_post(request):
         if user is not None:
             login(request, user)
             return redirect('/admin_home/')
-        # A backend authenticated the credentials
         else:
-
             messages.warning(request, 'Wrong credentials!')
             return redirect('/admin_login/')
-        # No backend authenticated the credentials
+
+
 
 
 
