@@ -53,6 +53,8 @@ class Latest_news(models.Model):
     time_uploaded = models.TimeField(default=datetime.now)
     date_time_picker = models.DateTimeField(default=datetime.now)
     number_of_views = models.BigIntegerField(default=0)
+    news_id = models.BigIntegerField(default=0)
+    news_type = models.CharField(max_length=20, default='latest')
 
 
 class sandhiya(models.Model):
