@@ -19,8 +19,6 @@
         <form action="/admin_Interview_post/{{news_edit.news_type}}/{{news_edit.date_uploaded | date:"Y-m-d"}}/{{news_edit.id}}" method="post" enctype="multipart/form-data">
            {% csrf_token %}
 <div class="written">
-            <!--        {{form.as_p}}-->
-            <!--        {{form.media}}-->
 
             <label>TITLE</label>
             {% render_field form.title %}
