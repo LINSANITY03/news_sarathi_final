@@ -1895,15 +1895,112 @@ def ns_setting_4(request):
 
 
 @login_required(login_url='/admin_login/')
+def admin_delete_news_main(request, news_types, dates, news_id):
+
+    if news_types == "sandhiya":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        sandhiya_news = sandhiya.objects.filter(id=main_news.news_id)
+        sandhiya_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "pradesh":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        pradesh_news = pradesh.objects.filter(id=main_news.news_id)
+        pradesh_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "esthaniya":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        esthaniya_news = esthaniya.objects.filter(id=main_news.news_id)
+        esthaniya_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "manoranjan":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        manoranjan_news = manoranjan.objects.filter(id=main_news.news_id)
+        manoranjan_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "khelud":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        khelud_news = khelud.objects.filter(id=main_news.news_id)
+        khelud_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "bichar_lekh":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        bichar_lekh_news = bichar_lekh.objects.filter(id=main_news.news_id)
+        bichar_lekh_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "antarbarta":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        antarbarta_news = antarbarta.objects.filter(id=main_news.news_id)
+        antarbarta_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "suchanapraviti":
+
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        suchanapraviti_news = suchanapraviti.objects.filter(id=main_news.news_id)
+        suchanapraviti_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "antarastriya":
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        antarastriya_news = antarastriya.objects.filter(id=main_news.news_id)
+        antarastriya_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+    if news_types == "sampadakiya":
+        main_news = grihaprista.objects.filter(id=news_id, date_uploaded=dates)
+
+        sampadakiya_news = sampadakiya.objects.filter(id=main_news.news_id)
+        sampadakiya_news.delete()
+
+        main_news.delete()
+        return redirect('admin_home')
+
+
+@login_required(login_url='/admin_login/')
 def admin_delete_news(request, news_types, dates, news_id):
     if news_types == "breaking_news":
         breaking_news_del = Breaking_news.objects.filter(date_uploaded=dates, id=news_id)
         breaking_news_del.delete()
-        return redirect('/admin_home/')
-
-    if news_types == "Latest_news":
-        latest_news_del = Latest_news.objects.filter(date_uploaded=dates, id=news_id)
-        latest_news_del.delete()
         return redirect('/admin_home/')
 
     if news_types == "sandhiya":

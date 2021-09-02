@@ -68,6 +68,9 @@ urlpatterns = [
     path('admin_delete_news/<str:news_types>/<str:dates>/<int:news_id>', views.admin_delete_news,
          name='admin_delete_news'),
 
+    path('admin_delete_news_main/<str:news_types>/<str:dates>/<int:news_id>', views.admin_delete_news_main,
+         name='admin_delete_news_main'),
+
     path('admin_Thoughts/', views.admin_Thoughts, name='admin_Thoughts'),
 
     path('admin_it_news/', views.admin_it_news, name='admin_it_news'),
