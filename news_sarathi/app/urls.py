@@ -29,6 +29,8 @@ urlpatterns = [
          name='admin_add_youtube_view'),
     path('admin_add_youtube_edit/<str:dates>/<int:news_id>', views.admin_add_youtube_edit,
          name='admin_add_youtube_edit'),
+    path('admin_edit_youtube_post/<str:dates>/<int:news_id>', views.admin_edit_youtube_post,
+         name='admin_edit_youtube_post'),
 
     path('admin_add_grihaprista/<str:news_types>/<str:dates>/<int:news_id>', views.admin_add_grihaprista,
          name='admin_add_grihaprista'),

@@ -2,10 +2,10 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/add_news.css' %}">
 <script src="{% static 'javascript/script.js'%}"></script>
-<div class="text">Add Breaking News</div>
+<div class="text">Edit Youtube link</div>
 
 <div class="addnews">
-    <form action="/admin_add_youtube_post/{{youtubelink_query.date_uploaded | date:"Y-m-d"}}/{{youtubelink_query.id}}" method="post">
+    <form action="/admin_edit_youtube_post/{{youtubelink_query.date_uploaded | date:"Y-m-d"}}/{{youtubelink_query.id}}" method="post">
     {% csrf_token %}
     <div class="written">
 

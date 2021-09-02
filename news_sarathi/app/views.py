@@ -756,6 +756,20 @@ def admin_add_youtube_post(request):
 
 
 @login_required(login_url='/admin_login/')
+def admin_edit_youtube_post(request, dates, news_id):
+    if request.method == 'POST':
+        title = request.POST.get("title")
+        link = request.POST.get("link")
+
+        youtube_link_query = youtubelink.objects.get(date_uploaded=dates, id=news_id)
+        youtube_link_query.title = title
+        youtube_link_query.link = link
+
+        messages.success(request, 'News Edited!')
+        return redirect('/admin_home/')
+
+
+@login_required(login_url='/admin_login/')
 def admin_add_youtube_view(request, dates, news_id):
     current_user = request.user
 
